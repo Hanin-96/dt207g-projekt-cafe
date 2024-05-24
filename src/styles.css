@@ -12,9 +12,29 @@ html {
 body {
     font-family: "Noto Sans", sans-serif;
     color: #1e1e1e;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 h1,
-h2 {
+h2,
+h3 {
+    font-family: "Libre Bodoni", serif;
+}
+
+h3 {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1.8rem;
+}
+
+button {
+    margin-top: 1rem;
+    font-size: 2rem;
+    padding: 0.5rem;
     font-family: "Libre Bodoni", serif;
 }
