@@ -12,9 +12,10 @@ html {
 body {
     font-family: "Noto Sans", sans-serif;
     color: #1e1e1e;
-    max-width: 1200px;
+    max-width: 1920px;
     width: 100%;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 h1,

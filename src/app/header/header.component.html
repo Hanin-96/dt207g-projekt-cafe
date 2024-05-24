@@ -1,8 +1,15 @@
 
+<header class="hero-container">
+    <div id="hero-img" [ngStyle]="{'background-image': 'url(' + cafeImg  + ')'}">
+        <div class="img-color"></div>
+    </div>
+    <div class="top-header">
+        <div class="logo"><img [src]="cafeLogo" alt="Logotyp"></div>
+        <div class="admin-login"><a href=""><fa-icon [icon]="faUserIcon" id="user-icon"></fa-icon>Admin</a></div>
+    </div>
+    <div class="hero-text">
+        <h1><a routerLink="/">Café Lugnet</a></h1>
+    </div>
 
-<div id="hero-img" [ngStyle]="{'background-image': 'url(' + students1Img  + ')'}">
-
-    <div class="hero-text"><a routerLink="/kurser"><img [src]="logoImg" alt="Logotyp"></a></div>
-
-    <div class="img-logo"><img [src]="miniLogoImg" alt="Liten Logotyp"></div>
-</div>
+    <app-navbar />
+</header>

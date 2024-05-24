@@ -1,31 +1,31 @@
-<div class="gallery">
-
-    <figure class="gallery_item gallery_item-1">
-        <img [src]="imgBread" class="gallery-img" alt="Bröd">
-    </figure>
-    <figure class="gallery_item gallery_item-2">
-        <img [src]="imgcoffee" class="gallery-img" alt="Kaffe">
-    </figure>
-    <figure class="gallery_item gallery_item-3">
-        <div class="gallery-img color-bg-1">
-            <div class="gallery-text">
-                <h3>Boka bord</h3>
-                <p>Vi serverar lunch</p>
-                <p>Boka gärna lunch bord i förväg för platsgaranti</p>
-                <button id="btn-gallery-book">Boka bord</button>
+<div class="bg-wrap" [ngStyle]="{'background-image': 'url(' + imgPatternSquare  + ')'}">
+    <div class="gallery">
+        <figure class="gallery_item gallery_item-1">
+            <img [src]="imgBread" class="gallery-img" alt="Bröd">
+        </figure>
+        <figure class="gallery_item gallery_item-2">
+            <img [src]="imgcoffee" class="gallery-img" alt="Kaffe">
+        </figure>
+        <figure class="gallery_item gallery_item-3">
+            <div class="gallery-img color-bg-1">
+                <div class="gallery-text">
+                    <h3>Boka bord</h3>
+                    <p>Vi serverar lunch</p>
+                    <p>Boka gärna lunch bord i förväg för platsgaranti</p>
+                    <button id="btn-gallery-book">Boka bord</button>
+                </div>
             </div>
-        </div>
-    </figure>
-    <figure class="gallery_item gallery_item-4">
-        <div class="gallery-img color-bg-2">
-            <div class="gallery-text text-date">
-                <h3>Öppettider</h3>
-                <p>{{timeWeekday}}</p>
-                <p>{{timeWeekend}}</p>
-                <p>{{timeLunch}}</p>
-                <button id="btn-gallery-time">Boka bord</button>
+        </figure>
+        <figure class="gallery_item gallery_item-4">
+            <div class="gallery-img color-bg-2">
+                <div class="gallery-text text-date">
+                    <h3>Öppettider</h3>
+                    <p>{{timeWeekday}}</p>
+                    <p>{{timeWeekend}}</p>
+                    <p>{{timeLunch}}</p>
+                    <button id="btn-gallery-time">Lunch Meny</button>
+                </div>
             </div>
-        </div>
-    </figure>
-
+        </figure>
+    </div>
 </div>
