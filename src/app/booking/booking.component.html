@@ -1,0 +1,65 @@
+<section id="bokabord">
+    <div class="book-form-wrap">
+        <form action="">
+            <h3>Boka bord</h3>
+            <div class="book-name">
+                <label for="name">Namn:</label>
+                <input type="text" name="name" id="name" placeholder="Ange ditt namn">
+            </div>
+
+            <div class="book-mobile">
+                <label for="mobile">Mobilnummer:</label>
+                <input type="text" name="mobile" id="mobile" placeholder="Ange din mobilnummer">
+            </div>
+
+            <div class="book-epost">
+                <label for="epost">Epost:</label>
+                <input type="text" name="epost" id="epost" placeholder="Ange din Epostadress">
+            </div>
+
+            <div class="book-guests">
+                <label for="guests">Antal gäster:</label>
+                <select name="guests" id="guests">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+
+            <div class="book-date-time">
+                <div class="book-date">
+                    <label for="date"><fa-icon [icon]="faDateIcon" id="date-icon"></fa-icon>Datum:</label>
+                    <input type="date" name="date" id="date">
+                </div>
+
+                <div class="book-time">
+                    <label for="time"><fa-icon [icon]="faClockIcon" id="clock-icon"></fa-icon>Tid:</label>
+                    <select name="time" id="time">
+                        <option value=""></option>
+                        <option value="11.00">11.00</option>
+                        <option value="11.30">11.30</option>
+                        <option value="12.00">12.00</option>
+                        <option value="12.30">12.30</option>
+                        <option value="13.00">13.00</option>
+                        <option value="13.30">13.30</option>
+                        <option value="14.00">14.00</option>
+                        <option value="14.30">14.30</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="book-message">
+                <label for="message">Meddelande:</label>
+                <textarea name="text" id="message" placeholder="Särskilda önskemål"></textarea>
+            </div>
+
+            <button class="btn-book-table"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Boka bord</button>
+
+
+        </form>
+    </div>
+</section>

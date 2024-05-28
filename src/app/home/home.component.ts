@@ -5,11 +5,15 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { PhotoGalleryComponent } from '../photo-gallery/photo-gallery.component';
 import { IntroComponent } from '../intro/intro.component';
+import { AboutComponent } from '../about/about.component';
+import { LocationComponent } from '../location/location.component';
+import { ContactComponent } from '../contact/contact.component';
+import { BookingComponent } from '../booking/booking.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, PhotoGalleryComponent, IntroComponent],
+  imports: [CommonModule, HeaderComponent, PhotoGalleryComponent, IntroComponent, AboutComponent, LocationComponent, ContactComponent, BookingComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

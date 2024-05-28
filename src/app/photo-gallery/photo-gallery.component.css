@@ -105,26 +105,27 @@ color-bg-1 {
 
 /*button*/
 #btn-gallery-book {
-    background-color: #F6A566;
-    border: 1.5px solid rgb(30, 30, 30);
+    background-color: #ffffff;
+   border: none;
     box-shadow: 0px 2px 2px 0px rgba(30, 30, 30, 0.2);
     width: 100%;
 }
 
 #btn-gallery-book:hover {
     cursor: pointer;
-    background-color: #e28258;
+    background-color: #EBA794;
 }
 
 #btn-gallery-time {
-    background-color: #1C3021;
-    border: 1.5px solid rgb(255, 255, 255);
+    background-color: #ffffff;
+   border: none;
     box-shadow: 0px 2px 2px 0px rgba(30, 30, 30, 0.2);
     width: 100%;
-    color: white;
+    color: #1e1e1e;
 }
 
 #btn-gallery-time:hover {
     cursor: pointer;
     background-color: #1e1e1e;
+    color: white;
 }

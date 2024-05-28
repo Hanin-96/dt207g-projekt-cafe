@@ -1,0 +1,29 @@
+section {
+    background-color: #1E1E1E;
+    color: white;
+}
+
+.contact-wrap {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+}
+
+.contact-list {
+    display: flex;
+    gap: 1rem;
+    justify-content: left;
+}
+
+ul li {
+    list-style: none;
+    font-size: 1.8rem;
+    font-weight: lighter;
+
+}
+
+fa-icon {
+    margin-right: 1rem;
+    color: #ffffff;
+}
