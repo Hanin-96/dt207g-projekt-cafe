@@ -1,1 +1,12 @@
-<p>login works!</p>
+<div class="whitespace">
+    <h2>Admin Inloggning</h2>
+</div>
+
+<form>
+    <label for="username">Användarnamn:</label>
+    <input type="text" id="username" [(ngModel)]="username">
+    <label for="password">Lösenord:</label>
+    <input type="password" id="password" [(ngModel)]="password">
+
+    <button (click)="login()">Logga in</button>
+</form>

@@ -1,0 +1,16 @@
+.whitespace {
+    background-color: rgb(255, 255, 255);
+    height: fit-content;
+    padding: 1rem 2rem;
+    max-width: 100%;
+    width: 100%;
+    z-index: 15;
+    position: sticky;
+    border-top: 1rem solid white;
+}
+
+h2 {
+    font-size: 4.2rem;
+    text-align: center;
+}
+

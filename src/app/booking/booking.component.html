@@ -13,13 +13,14 @@
             </div>
 
             <div class="book-epost">
-                <label for="epost">Epost:</label>
-                <input type="text" name="epost" id="epost" placeholder="Ange din Epostadress">
+                <label for="epost">E-post:</label>
+                <input type="text" name="epost" id="epost" placeholder="Ange din e-postadress">
             </div>
 
             <div class="book-guests">
                 <label for="guests">Antal gäster:</label>
                 <select name="guests" id="guests">
+                    <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
@@ -39,15 +40,14 @@
                 <div class="book-time">
                     <label for="time"><fa-icon [icon]="faClockIcon" id="clock-icon"></fa-icon>Tid:</label>
                     <select name="time" id="time">
-                        <option value=""></option>
-                        <option value="11.00">11.00</option>
-                        <option value="11.30">11.30</option>
-                        <option value="12.00">12.00</option>
-                        <option value="12.30">12.30</option>
-                        <option value="13.00">13.00</option>
-                        <option value="13.30">13.30</option>
-                        <option value="14.00">14.00</option>
-                        <option value="14.30">14.30</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                        <option value="13:30">13:30</option>
+                        <option value="14:00">14:00</option>
+                        <option value="14:30">14:30</option>
                     </select>
                 </div>
             </div>

@@ -2,18 +2,18 @@ import { Component } from '@angular/core';
 import { MenuService } from '../services/menu.service';
 import { Menu } from '../models/menu';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../header/header.component';
 import { PhotoGalleryComponent } from '../photo-gallery/photo-gallery.component';
 import { IntroComponent } from '../intro/intro.component';
 import { AboutComponent } from '../about/about.component';
 import { LocationComponent } from '../location/location.component';
 import { ContactComponent } from '../contact/contact.component';
 import { BookingComponent } from '../booking/booking.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, PhotoGalleryComponent, IntroComponent, AboutComponent, LocationComponent, ContactComponent, BookingComponent],
+  imports: [CommonModule, PhotoGalleryComponent, IntroComponent, AboutComponent, LocationComponent, ContactComponent, BookingComponent, NavbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

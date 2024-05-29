@@ -50,9 +50,8 @@
     background-size: cover;
     position: relative;
     width: 100%;
-    transform: scale(1.02);
     animation: fadeIn 0.5s 1s forwards ease-in;
-    filter: grayscale(1) blur(2px);
+    filter: grayscale(1) blur(3px);
     background-attachment: fixed;
 }
 

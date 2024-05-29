@@ -64,9 +64,9 @@ input, select, textarea {
 
 .btn-book-table:hover {
     cursor: pointer;
-    background-color: #EBA794;
+    background-color: #C5D4C7;
 }
 
 fa-icon {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 }

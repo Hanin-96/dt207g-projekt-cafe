@@ -3,14 +3,13 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NavbarComponent } from '../navbar/navbar.component';
 
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, FontAwesomeModule, NavbarComponent],
+  imports: [CommonModule, RouterLink, FontAwesomeModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

@@ -113,7 +113,7 @@ color-bg-1 {
 
 #btn-gallery-book:hover {
     cursor: pointer;
-    background-color: #EBA794;
+    background-color: #F9EAD7;
 }
 
 #btn-gallery-time {
@@ -126,6 +126,13 @@ color-bg-1 {
 
 #btn-gallery-time:hover {
     cursor: pointer;
-    background-color: #1e1e1e;
-    color: white;
+    background-color: #F9EAD7;
 }
+
+.a-link {
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+
