@@ -3,6 +3,7 @@
 </div>
 
 <form>
+    <div>{{errorMessage}}</div>
     <label for="username">Användarnamn:</label>
     <input type="text" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
     <label for="password">Lösenord:</label>

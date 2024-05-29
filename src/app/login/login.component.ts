@@ -17,17 +17,24 @@ export class LoginComponent {
   username: string = "";
   password: string = "";
 
-  constructor(private loginService: LoginService, router: Router) { }
+  //Error message
+  errorMessage: string ="";
+
+  constructor(private loginService: LoginService, private router: Router) { }
 
   //Inloggning
 
   login(): void {
     this.loginService.login(this.username, this.password).subscribe({
       next: (response: Loginresponse) => {
+        //Spara token i LocalStorage
+        localStorage.setItem("token", response.token);
+        this.router.navigate(['/admin']);
+
         console.log(response.message);
       },
       error: (error) => {
-        console.log("Felaktig inloggning");
+        this.errorMessage = "Felaktig Användarnamn / Lösenord";
       }
     });
   }
