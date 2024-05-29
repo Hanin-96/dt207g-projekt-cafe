@@ -1,29 +1,84 @@
-.whitespace {
-    background-color: rgb(255, 255, 255);
-    height: fit-content;
-    padding: 1rem 2rem;
-    max-width: 100%;
+.login-form-wrap {
+    padding-top: 10rem;
+    background-color: #F9EAD7;
+    min-height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     width: 100%;
-    z-index: 15;
-    position: sticky;
-    border-top: 1rem solid white;
+    padding-bottom: 10rem;
+    display: flex;
+    align-items: center;
 }
 
-h2 {
+
+h1 {
     font-size: 4.2rem;
     text-align: center;
+    margin-bottom: 4rem;
 }
 
 /*button*/
-#btn-login{
-    background-color: #d43838;
-   border: none;
+#btn-login {
+    background-color: #1C3021;
+    color: white;
+    border: none;
     box-shadow: 0px 2px 2px 0px rgba(30, 30, 30, 0.2);
     width: 100%;
-    max-width: 200px;
+    margin-bottom: 2rem;
 }
 
-#btn-login:hover {
-    cursor: pointer;
+#btn-backToStart {
+    background-color: #1e1e1e;
+    color: white;
+    width: 100%;
 }
 
+
+
+form {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #F9EAD7;
+    padding: 2rem;
+    box-shadow: 0px 4px 10px 0px rgb(30, 30, 30, 0.4);
+
+}
+
+label {
+    display: block;
+    width: 100%;
+    font-size: 1.8rem;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    border: 1.5px solid rgb(30, 30, 30, 0.2);
+    box-shadow: 0px 2px 4px 0px rgb(30, 30, 30, 0.2);
+}
+
+button {
+    display: block;
+    padding: 1rem;
+}
+
+.login-form {
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+   from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}

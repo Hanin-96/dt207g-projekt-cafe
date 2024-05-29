@@ -53,6 +53,7 @@ button {
     margin-top: 1rem;
     font-size: 2rem;
     font-family: "Libre Bodoni", serif;
+    cursor: pointer;
 }
 
 fa-icon {

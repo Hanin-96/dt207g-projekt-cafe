@@ -9,11 +9,12 @@ import { LocationComponent } from '../location/location.component';
 import { ContactComponent } from '../contact/contact.component';
 import { BookingComponent } from '../booking/booking.component';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, PhotoGalleryComponent, IntroComponent, AboutComponent, LocationComponent, ContactComponent, BookingComponent, NavbarComponent],
+  imports: [CommonModule, PhotoGalleryComponent, IntroComponent, AboutComponent, LocationComponent, ContactComponent, BookingComponent, NavbarComponent, HeaderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
