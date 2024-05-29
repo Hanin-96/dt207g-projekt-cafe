@@ -4,9 +4,9 @@
 
 <form>
     <label for="username">Användarnamn:</label>
-    <input type="text" id="username" [(ngModel)]="username">
+    <input type="text" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
     <label for="password">Lösenord:</label>
-    <input type="password" id="password" [(ngModel)]="password">
+    <input type="password" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
 
-    <button (click)="login()">Logga in</button>
+    <button id="btn-login"(click)="login()">Logga in</button>
 </form>
