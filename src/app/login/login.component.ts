@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { Loginresponse } from '../models/loginresponse';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -20,6 +22,10 @@ export class LoginComponent {
 
   //Error message
   errorMessage: string = "";
+
+  //Ikon
+  faUserIcon = faUser;
+  faChevronIcon = faChevronLeft;
 
   constructor(private loginService: LoginService, private router: Router) { }
 

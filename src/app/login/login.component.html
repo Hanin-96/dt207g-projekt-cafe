@@ -1,14 +1,16 @@
-<div class="login-form-wrap" [ngStyle]="{'background-image': 'url(' + patternImg  + ')'}">
+<div class="login-form-wrap" [ngStyle]="{'background-image': 'url(' + patternImg  + ')' }">
 
     <form class="login-form">
+        <fa-icon [icon]="faUserIcon" id="userIcon"></fa-icon>
         <h1>Admin Inloggning</h1>
-        <div>{{errorMessage}}</div>
         <label for="username">Användarnamn:</label>
         <input type="text" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
         <label for="password">Lösenord:</label>
         <input type="password" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
 
-        <button id="btn-login" (click)="login()">Logga in</button>
-        <button id="btn-backToStart" (click)="backToStartBtn()">Tillbaka till Startsida</button>
+        <div><p class="error-login">{{errorMessage}}</p></div>
+
+        <button id="btn-login" (click)="login()"><fa-icon [icon]="faUserIcon" class="user-mini-icon"></fa-icon>Logga in</button>
+        <button id="btn-backToStart" (click)="backToStartBtn()"><fa-icon [icon]="faChevronIcon" class="left-arrow"></fa-icon>Tillbaka till Startsida</button>
     </form>
 </div>

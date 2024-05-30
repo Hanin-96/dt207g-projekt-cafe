@@ -1,3 +1,18 @@
+/*Ikon för inloggning*/
+#userIcon {
+    display: block;
+    width: 100%;
+    font-size: 10rem;
+    text-align: center;
+}
+
+.user-mini-icon, .left-arrow {
+    color: white;
+    margin-right: 0.5rem;
+}
+
+/*form wrapper*/
+
 .login-form-wrap {
     padding-top: 10rem;
     background-color: #F9EAD7;
@@ -27,12 +42,15 @@ h1 {
     box-shadow: 0px 2px 2px 0px rgba(30, 30, 30, 0.2);
     width: 100%;
     margin-bottom: 2rem;
+    border: none;
 }
 
 #btn-backToStart {
     background-color: #1e1e1e;
     color: white;
     width: 100%;
+    border: none;
+    box-shadow: 0px 2px 2px 0px rgba(30, 30, 30, 0.2);
 }
 
 
@@ -67,6 +85,14 @@ button {
     padding: 1rem;
 }
 
+/*Error meddelande vid inloggning*/
+.error-login {
+    margin: 2rem 0;
+    font-style: oblique;
+    font-weight: 300;
+    font-size: 1.6rem;
+}
+
 .login-form {
     animation: fadeIn 2s forwards;
 }
@@ -74,7 +100,7 @@ button {
 @keyframes fadeIn {
    from {
         opacity: 0;
-        transform: translateY(100%);
+        transform: translateY(-100%);
     }
 
     to {
