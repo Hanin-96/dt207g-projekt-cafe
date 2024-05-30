@@ -1,25 +1,37 @@
 <section id="bokabord">
     <div class="book-form-wrap">
-        <form action="">
+        <form [formGroup]="bookingForm" (ngSubmit)="addBooking()">
             <h3>Boka bord</h3>
+
             <div class="book-name">
-                <label for="name">Namn:</label>
-                <input type="text" name="name" id="name" placeholder="Ange ditt namn">
+                <label for="firstname">Förnamn:</label>
+                <span class="booking-error" *ngIf="bookingForm.controls['firstname'].invalid && bookingForm.controls['firstname'].touched">Förnamnet måste vara minst 2 bokstäver</span>
+                <input type="text" name="firstname" id="firstname" placeholder="Ange ditt förnamn" formControlName="firstname">
             </div>
 
+            <div class="book-lastname">
+                <label for="lastname">Efternamn:</label>
+                <span class="booking-error" *ngIf="bookingForm.controls['lastname'].invalid && bookingForm.controls['lastname'].touched">Efternamnet måste vara minst 2 bokstäver</span>
+                <input type="text" name="lastname" id="lastname" placeholder="Ange ditt efternamn" formControlName="lastname">
+            </div>
+
+
             <div class="book-mobile">
-                <label for="mobile">Mobilnummer:</label>
-                <input type="text" name="mobile" id="mobile" placeholder="Ange din mobilnummer">
+                <label for="phonenumber">Mobilnummer:</label>
+                <span class="booking-error" *ngIf="bookingForm.controls['phonenumber'].invalid && bookingForm.controls['phonenumber'].touched">Ange Mobilnummer</span>
+                <input type="text" name="mobile" id="mobile" placeholder="Ange din mobilnummer" formControlName="phonenumber">
             </div>
 
             <div class="book-epost">
-                <label for="epost">E-post:</label>
-                <input type="text" name="epost" id="epost" placeholder="Ange din e-postadress">
+                <label for="email">E-post:</label>
+                <span class="booking-error" *ngIf="bookingForm.controls['email'].invalid && bookingForm.controls['email'].touched">Ange korrekt E-post</span>
+                <input type="text" name="email" id="email" placeholder="Ange din e-postadress" formControlName="email">
             </div>
 
             <div class="book-guests">
                 <label for="guests">Antal gäster:</label>
-                <select name="guests" id="guests">
+                <span class="booking-error" *ngIf="bookingForm.controls['guests'].invalid && bookingForm.controls['guests'].touched">Välj antal gäster</span>
+                <select name="guests" id="guests" formControlName="guests">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -34,12 +46,14 @@
             <div class="book-date-time">
                 <div class="book-date">
                     <label for="date"><fa-icon [icon]="faDateIcon" id="date-icon"></fa-icon>Datum:</label>
-                    <input type="date" name="date" id="date">
+                    <span class="booking-error" *ngIf="bookingForm.controls['date'].invalid && bookingForm.controls['date'].touched">Välj datum/dag</span>
+                    <input type="date" name="date" id="date" formControlName="date">
                 </div>
 
                 <div class="book-time">
                     <label for="time"><fa-icon [icon]="faClockIcon" id="clock-icon"></fa-icon>Tid:</label>
-                    <select name="time" id="time">
+                    <span class="booking-error" *ngIf="bookingForm.controls['time'].invalid && bookingForm.controls['time'].touched">Välj tid</span>
+                    <select name="time" id="time" formControlName="time">
                         <option value="11:00">11:00</option>
                         <option value="11:30">11:30</option>
                         <option value="12:00">12:00</option>
@@ -54,12 +68,15 @@
 
             <div class="book-message">
                 <label for="message">Meddelande:</label>
-                <textarea name="text" id="message" placeholder="Särskilda önskemål"></textarea>
+                <textarea name="text" id="message" placeholder="Särskilda önskemål" formControlName="bookingMessage"></textarea>
             </div>
 
+            @if(errorMessageForm != "") {
+                <p class="error-form-message">{{errorMessageForm}}</p>
+                }
+    
+
             <button class="btn-book-table"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Boka bord</button>
-
-
         </form>
     </div>
 </section>

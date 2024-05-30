@@ -70,3 +70,16 @@ input, select, textarea {
 fa-icon {
     margin-right: 0.5rem;
 }
+
+/*error-meddelande*/
+span.booking-error {
+    display: block;
+    font-size: 1.6rem;
+    font-style: italic;
+}
+
+.error-form-message {
+    display: block;
+    font-size: 1.8rem;
+    font-style: italic;
+}
