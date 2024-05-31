@@ -1,7 +1,7 @@
 <div class="login-form-wrap" [ngStyle]="{'background-image': 'url(' + patternImg  + ')' }">
 
     <form class="login-form">
-        <fa-icon [icon]="faUserIcon" id="userIcon"></fa-icon>
+        <img [src]="cafeLogo" alt="cafeLogo" class="logo-login">
         <h1>Admin Inloggning</h1>
         <label for="username">Användarnamn:</label>
         <input type="text" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">

@@ -12,6 +12,9 @@ import { MenuService } from '../services/menu.service';
 })
 export class AdminMenuComponent {
 
+  //Bakgrundsbild
+  linesPatternImg: string = "/assets/img/lines-pattern.png";
+
   dishes: Menu[] = [];
 
   constructor(private menuService: MenuService) { }

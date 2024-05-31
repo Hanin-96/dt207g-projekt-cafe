@@ -1,1 +1,48 @@
-<p>admin-bookings works!</p>
+<app-admin-header />
+<app-admin-navbar />
+
+<div class="bookings-wrap-admin" [ngStyle]="{'background-image': 'url(' + patternImg  + ')'}">
+    <h2>Bordsbokningar</h2>
+
+    <span class="bookings-line"></span>
+    <div class="bookings-admin-wrap">
+
+        <div *ngFor="let bookingData of getBookings" class="admin-bookings">
+
+            <div class="customer-info">
+                <ul>
+                    <li>Bokning:</li>
+                    <li>{{bookingData.firstname}} {{bookingData.lastname}}</li>
+                    <li>{{bookingData.phonenumber}}</li>
+                    <li>{{bookingData.email}}</li>
+                </ul>
+            </div>
+
+            <div class="guests">
+                <ul>
+                    <li>Antal gäster:</li>
+                    <li>{{bookingData.guests}}</li>
+                </ul>
+            </div>
+
+            <div class="booking-time">
+                <ul>
+                    <li>Datum och tid:</li>
+                    <li>{{bookingData.date}} {{bookingData.time}}</li>
+                </ul>
+            </div>
+
+            <div class="booking-message">
+                <ul>
+                    <li>Meddelande:</li>
+                    <li>{{bookingData.bookingMessage}}</li>
+                </ul>
+            </div>
+
+            <div class="btn-bookings-admin">
+                <button>Ta bort</button>
+                <button>Redigera</button>
+            </div>
+        </div>
+    </div>
+</div>

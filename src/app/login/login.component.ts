@@ -32,6 +32,9 @@ export class LoginComponent {
   //Img pattern
   patternImg: string = "/assets/img/pattern-bg-2.png"
 
+  //Logotyp
+  cafeLogo: string = "assets/img/logotyp.svg"
+
   //Inloggning
   login(): void {
     this.loginService.login(this.username, this.password).subscribe({
@@ -44,7 +47,7 @@ export class LoginComponent {
       },
       error: (error) => {
         this.errorMessage = "Felaktig Användarnamn / Lösenord";
-      }
+      },
     });
   }
 

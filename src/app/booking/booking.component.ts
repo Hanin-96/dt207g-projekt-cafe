@@ -35,8 +35,6 @@ export class BookingComponent {
     date: new FormControl('', Validators.required),
     time: new FormControl('', Validators.required),
     bookingMessage: new FormControl('')
-
-
   });
 
   constructor(private addBokingService: BookingService, private route: Router) { }
@@ -48,8 +46,10 @@ export class BookingComponent {
       this.errorMessageForm = "Ange samtliga fält!";
 
     } else {
+      //Vid lyckat post sparas datan 
       this.addBokingService.postBooking(this.bookingForm.value as unknown as Booking).subscribe({
         next: () => {
+
           this.bookingForm.reset();
           this.errorMessageForm = "";
           this.route.navigate(['/']);
@@ -60,7 +60,6 @@ export class BookingComponent {
       })
     }
   }
-
 
 
 }
