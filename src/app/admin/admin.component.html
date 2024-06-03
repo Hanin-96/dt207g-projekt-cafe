@@ -1,6 +1,7 @@
+<div class="admin-main"  [ngStyle]="{'background-image': 'url(' + linesPatternImg  + ')'}">
+    <app-admin-header />
+    <app-admin-navbar />
+    <app-admin-menu />
 
-<app-admin-header />
-<app-admin-navbar />
-<app-admin-menu />
-
-<button id="btn-logout" (click)="logout()">Logga ut</button>
+    <button id="btn-logout" (click)="logout()">Logga ut <fa-icon [icon]="faArrowRightToBracketIcon" class="logout-icon"></fa-icon></button>
+</div>

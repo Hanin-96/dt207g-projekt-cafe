@@ -27,7 +27,10 @@ export class AdminBookingsComponent {
   ngOnInit(): void {
     this.bookingService.getBookings().subscribe({
       next: (bookingData) => {
-        this.getBookings = bookingData;
+        this.getBookings = bookingData.sort((a,b) => {
+          //Returnera efter tidigast bokningstider
+          return new Date(a.date).getTime() - new Date(b.date).getTime();
+        });
 
       },
       error: (error) => {
@@ -37,6 +40,11 @@ export class AdminBookingsComponent {
         }
       }
     });
+  }
+
+  //Uppdatera bokning
+  updateBooking():void {
+    
   }
 
   
