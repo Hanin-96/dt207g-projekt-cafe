@@ -25,6 +25,12 @@ export class BookingComponent {
   //Error
   errorMessageForm: string = "";
 
+  //Bokningsbekräftelse
+  bookingSuccessMessage: string = "";
+  bookingSuccessName: string = "";
+  bookingSuccessDateTime: string = "";
+  bookingSuccessGuests: string = "";
+
   //Reactive bokningsformulär
   bookingForm = new FormGroup({
     firstname: new FormControl('', [Validators.required, Validators.minLength(2)]),
@@ -50,9 +56,20 @@ export class BookingComponent {
       this.addBokingService.postBooking(this.bookingForm.value as unknown as Booking).subscribe({
         next: () => {
 
+          this.bookingSuccessMessage = "Bokningsbekräftelse: Vi har tagit emot din bokning";
+          this.bookingSuccessName = this.bookingForm.value.firstname + " " + this.bookingForm.value.lastname;
+          this.bookingSuccessDateTime = this.bookingForm.value.date + " kl:" + this.bookingForm.value.time;
+          this.bookingSuccessGuests = this.bookingForm.value.guests + "";
           this.bookingForm.reset();
           this.errorMessageForm = "";
-          this.route.navigate(['/']);
+
+          //Tid för message
+          setTimeout(() => {
+            this.bookingSuccessMessage = "";
+            this.bookingSuccessName = "";
+            this.bookingSuccessDateTime = "";
+            this.bookingSuccessGuests = "";
+          }, 8000);
         },
         error: (error) => {
           this.errorMessageForm = error;

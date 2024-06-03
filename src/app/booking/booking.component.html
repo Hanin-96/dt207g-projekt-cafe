@@ -77,6 +77,19 @@
 
 
             <button class="btn-book-table"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Boka bord</button>
+
+            @if(bookingSuccessMessage != "") {
+
+            <div class="booking-confirm">
+                <ul>
+                    <li>{{bookingSuccessMessage}}  </li>
+                    <li>Namn: {{bookingSuccessName}}</li>
+                    <li> Datum och tid: {{bookingSuccessDateTime}}</li>
+                    <li>Antal gäster: {{bookingSuccessGuests}} pers</li>
+                </ul>
+            </div>
+            }
+
         </form>
     </div>
 </section>
