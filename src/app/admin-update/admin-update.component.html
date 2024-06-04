@@ -26,15 +26,17 @@
                     <td class="table-btn" colspan="6">
                         <div class="btn-dish">
                             <button class="btn-delete" (click)="deleteDishFromMenu(menuData._id)"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
-                            <button class="btn-edit"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
+                            <button class="btn-edit" (click)="updateDishFromMenu(updateMenuForm, menuData)"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
                         </div>
                     </td>
                 </tr>
             </table>
         </div>
 
-        <div class="menu-form-wrap">
-            <h2>Lägg till maträtt</h2>
+        <div class="menu-form-wrap" #updateMenuForm>
+            <h2 *ngIf="dishIdToUpdate==''">Lägg till maträtt</h2>
+            <h2 *ngIf="dishIdToUpdate!=''">Uppdatera maträtt</h2>
+
 
             <form [formGroup]="menuForm" (ngSubmit)="addMenu()" class="add-dish-form">
 
@@ -78,10 +80,15 @@
                 <p class="error-form-message">{{errorMessageMenuForm}}</p>
                 }
 
-                <button class="btn-add-dish" type="submit"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Lägg till</button>
+                <button *ngIf="dishIdToUpdate==''" class="btn-add-dish" type="submit"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Lägg till</button>
+
+                <ng-container *ngIf="dishIdToUpdate!=''">
+                    <button class="btn-add-dish" (click)="updateDish()">Uppdatera</button>
+                    <button class="btn-abort" (click)="abortUpdate()">Avbryt</button>
+                </ng-container>
             </form>
         </div>
-        
+
     </section>
 
     <app-admin-btn-logout />

@@ -33,6 +33,9 @@ export class AdminUpdateComponent {
   //Typen Menu interface
   dishes: Menu[] = [];
 
+  //Rätt som ska uppdateras
+  dishIdToUpdate: string = "";
+
   //Reactive bokningsformulär
   menuForm = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -42,11 +45,11 @@ export class AdminUpdateComponent {
     price: new FormControl('', Validators.required)
   });
 
-  constructor(private addmenuService: MenuService, private router: Router) { }
+  constructor(private menuService: MenuService, private router: Router) { }
 
   //Hämta menyn
   ngOnInit(): void {
-    this.addmenuService.getMenuData().subscribe(menuData => {
+    this.menuService.getMenuData().subscribe(menuData => {
       this.dishes = menuData;
     })
   }
@@ -59,7 +62,7 @@ export class AdminUpdateComponent {
 
     } else {
       //console.log(localStorage.getItem("token"));
-      this.addmenuService.postNewDish(this.menuForm.value as unknown as Menu).subscribe({
+      this.menuService.postNewDish(this.menuForm.value as unknown as Menu).subscribe({
         next: () => {
           this.errorMessageMenuForm = "";
           this.menuForm.reset();
@@ -78,7 +81,7 @@ export class AdminUpdateComponent {
 
   //Ta bort maträtt från menyn
   deleteDishFromMenu(dishId: string): void {
-    this.addmenuService.deleteFromMenu(dishId).subscribe({
+    this.menuService.deleteFromMenu(dishId).subscribe({
       next: () => {
         this.ngOnInit();
       },
@@ -91,6 +94,30 @@ export class AdminUpdateComponent {
     });
   }
 
+  //Uppdatera maträtt från menyn
+  updateDishFromMenu(el: HTMLElement, menuData: Menu): void {
+    this.menuForm.get("title")?.setValue(menuData.title);
+    this.menuForm.get("category")?.setValue(menuData.category);
+    this.menuForm.get("description")?.setValue(menuData.description);
+    this.menuForm.get("allergy")?.setValue(menuData.allergy);
+    this.menuForm.get("price")?.setValue(menuData.price.toString());
+
+    this.dishIdToUpdate = menuData._id;
+
+    //Scrolla till formulär
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+
+  //Ångra ändring
+  abortUpdate(): void {
+    this.dishIdToUpdate = "";
+    this.menuForm.reset();
+  }
+
+  //Uppdatera ändring av maträtt
+  updateDish(): void {
+
+  }
 
 
 
