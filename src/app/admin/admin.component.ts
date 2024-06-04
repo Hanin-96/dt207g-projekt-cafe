@@ -24,9 +24,5 @@ export class AdminComponent {
     //Bakgrundsbild
     linesPatternImg: string = "/assets/img/lines-pattern.png";
 
-  constructor() {
-
-  }
-
 
 }

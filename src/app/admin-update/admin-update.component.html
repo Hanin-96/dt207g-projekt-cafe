@@ -2,26 +2,59 @@
     <app-admin-header />
     <app-admin-navbar />
 
-    <section id="bokabord">
-        <div class="book-form-wrap">
-            <form [formGroup]="menuForm" (ngSubmit)="addMenu()">
-                <h3>Lägg till maträtt</h3>
-    
+    <section id="menu-add-dish">
+
+        
+        <div class="add-dish-menu-table">
+            <h2>Redigera meny</h2>
+            <table>
+                <tr>
+                    <th>Titel</th>
+                    <th>Beskrivning</th>
+                    <th>Kategori</th>
+                    <th>Allergifri</th>
+                    <th>Pris</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let menuData of dishes">
+                    <td>{{ menuData.title}}</td>
+                    <td>{{ menuData.description}}</td>
+                    <td>{{ menuData.category}}</td>
+                    <td>{{ menuData.allergy}}</td>
+                    <td>{{ menuData.price}}kr</td>
+
+                    <td class="table-btn" colspan="6">
+                        <div class="btn-dish">
+                            <button class="btn-delete"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
+                            <button class="btn-edit"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="menu-form-wrap">
+            <h2>Lägg till maträtt</h2>
+
+            <form [formGroup]="menuForm" (ngSubmit)="addMenu()" class="add-dish-form">
+
                 <div class="dish-title">
                     <label for="title">Titel:</label>
                     <span class="menu-error" *ngIf="menuForm.controls['title'].invalid && menuForm.controls['title'].touched">Titeln måste vara minst 3 bokstäver</span>
                     <input type="text" name="title" id="title" placeholder="Ange titel på maträtt" formControlName="title">
                 </div>
-    
+
                 <div class="dish-category">
-                    <label for="category">Kategory:</label>
+                    <label for="category">Kategori:</label>
                     <span class="menu-error" *ngIf="menuForm.controls['category'].invalid && menuForm.controls['category'].touched">Välj alternativ</span>
                     <select name="category" id="category" formControlName="category">
                         <option value="Brunch">Brunch</option>
-                        <option value="Lunch">Fisk</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Fisk">Fisk</option>
                         <option value="Skaldjur">Skaldjur</option>
                         <option value="Vegetarisk">Vegetarisk</option>
                         <option value="Lakto-ovo-vegetarisk">Lakto-ovo-vegetarisk</option>
+                        <option value="Vegansk">Vegansk</option>
                     </select>
                 </div>
 
@@ -32,7 +65,7 @@
                 </div>
 
                 <div class="dish-allergy">
-                    <label for="allergy">Allergifri/intolerans:</label>
+                    <label for="allergy">Allergifri:</label>
                     <input type="text" name="allergy" id="allergy" placeholder="Exempelvis Laktosfri, Glutenfri, fri från nötter osv" formControlName="allergy">
                 </div>
                 <div class="dish-price">
@@ -40,18 +73,16 @@
                     <span class="menu-error" *ngIf="menuForm.controls['price'].invalid && menuForm.controls['description'].touched">Ange pris för maträtten</span>
                     <input type="number" name="price" id="price" placeholder="Pris på maträtt" formControlName="price">
                 </div>
-    
-    
+
+
                 @if(errorMessageMenuForm != "") {
                 <p class="error-form-message">{{errorMessageMenuForm}}</p>
                 }
-    
+
                 <button class="btn-add-dish" type="submit"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Lägg till</button>
-    
-    
             </form>
         </div>
     </section>
 
-    <app-admin-btn-logout/>
+    <app-admin-btn-logout />
 </div>

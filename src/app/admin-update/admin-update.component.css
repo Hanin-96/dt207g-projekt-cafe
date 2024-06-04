@@ -1,43 +1,62 @@
 .admin-main {
     background-color: #F9EAD7;
-    padding-bottom: 2rem;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
 }
 
-
-
-section {
-    width: 100%;
+.bookings-wrap-admin {
+    padding: 2rem;
 }
 
-h3 {
+h2 {
+    font-size: 4.2rem;
+    padding: 2rem;
     text-align: center;
 }
 
-.book-form-wrap {
-    max-width: 800px;
+.menu-form-wrap {
+    max-width: 600px;
+    width: 100%;
+}
+
+#menu-add-dish {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 100vw;
     width: 100%;
     margin: 0 auto;
+    align-items: flex-start;
     padding: 2rem;
+    gap: 2rem;
+}
+
+.add-dish-form {
+    background-color: white;
+    margin: 2rem;
+    padding: 2rem;
+    box-shadow: 0px 2px 4px 0px rgb(30, 30, 30, 0.4);
 }
 
 label {
     display: block;
     font-size: 1.8rem;
+    background-color: #F6A566;
+    padding: 0.5rem;
+    font-family: "Libre Bodoni", serif;
 }
 
 input {
     width: 100%;
-    max-width: 800px;
+    max-width: 600px;
     padding: 1rem;
     margin-bottom: 2rem;
 }
 
 select {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     padding: 1rem;
     margin-bottom: 2rem;
 }
@@ -47,13 +66,15 @@ textarea {
     resize: vertical;
     min-height: 10rem;
     padding: 1rem;
+    margin-bottom: 2rem;
 
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     border: 1.5px solid rgb(30, 30, 30, 0.2);
     box-shadow: 0px 2px 4px 0px rgb(30, 30, 30, 0.2);
-    margin-top: 0.5rem;
 
 }
 
@@ -70,9 +91,23 @@ input, select, textarea {
     background-color: #C5D4C7;
 }
 
+/*Ikoner*/
 fa-icon {
     margin-right: 0.5rem;
 }
+
+.trash-icon {
+    color: white;
+    display: block;
+    margin-right: 0;
+}
+
+.pencil-icon {
+    display: block;
+    margin-right: 0;
+}
+
+
 
 /*error-meddelande*/
 span.menu-error {
@@ -85,4 +120,62 @@ span.menu-error {
     display: block;
     font-size: 1.8rem;
     font-style: italic;
+}
+
+/*Tabell med maträtter*/
+.add-dish-menu-table table {
+    background-color: white;
+    box-shadow: 0px 2px 2px 0px rgb(30, 30, 30, 0.4);
+    margin: 2rem;
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+}
+
+table tr th {
+    background-color: #F6A566;
+    font-size: 1.8rem;
+    font-family: "Libre Bodoni", serif;
+    font-weight: 400;
+    padding: 0.5rem;
+}
+
+table tr:nth-child(1n) {
+    box-shadow: 0px 2px 2px 0px rgba(30, 30, 30, 0.2);
+}
+
+table tr:first-child {
+    background-color: #F6A566;
+}
+
+table tr td {
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+.btn-dish {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.table-btn button:first-child{
+    width: 100%;
+    background-color: #1e1e1e;
+    border: none;
+    box-shadow: 0px 2px 2px 0px rgba(30, 30, 30, 0.2);
+    width: 100%;
+    color: white;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.table-btn button:last-child{
+    width: 100%;
+    background-color: #F6A566;
+    border: none;
+    box-shadow: 0px 2px 2px 0px rgba(30, 30, 30, 0.2);
+    width: 100%;
+    color: #1e1e1e;
+    padding: 0.5rem;
 }

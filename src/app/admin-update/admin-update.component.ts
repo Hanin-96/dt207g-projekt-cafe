@@ -6,7 +6,7 @@ import { AdminBtnLogoutComponent } from '../admin-btn-logout/admin-btn-logout.co
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MenuService } from '../services/menu.service';
 import { Menu } from '../models/menu';
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCircleCheck, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router } from '@angular/router';
 
@@ -21,6 +21,8 @@ export class AdminUpdateComponent {
 
   //Ikon
   faCircleCheckIcon = faCircleCheck;
+  faTrashIcon = faTrash;
+  faPenIcon = faPenToSquare;
 
   //Bakgrundsbild
   linesPatternImg: string = "/assets/img/lines-pattern.png";
@@ -28,6 +30,8 @@ export class AdminUpdateComponent {
   //Error
   errorMessageMenuForm: string = "";
 
+  //Typen Menu interface
+  dishes: Menu[] = [];
 
   //Reactive bokningsformulär
   menuForm = new FormGroup({
@@ -38,7 +42,14 @@ export class AdminUpdateComponent {
     price: new FormControl('', Validators.required)
   });
 
-  constructor(private addmenuService: MenuService, private router: Router) { }
+  constructor(private addmenuService: MenuService, private router: Router, private menuService: MenuService) { }
+
+  //Hämta menyn
+  ngOnInit(): void {
+    this.menuService.getMenuData().subscribe(menuData => {
+      this.dishes = menuData;
+    })
+  }
 
   //Lägga till i menyn
   addMenu(): void {
@@ -52,6 +63,7 @@ export class AdminUpdateComponent {
         next: () => {
           this.errorMessageMenuForm = "";
           this.menuForm.reset();
+          this.ngOnInit();
         },
         error: (error) => {
           this.errorMessageMenuForm = error.error;
@@ -60,11 +72,11 @@ export class AdminUpdateComponent {
             this.router.navigate(['/login']);
           }
         }
-
-      })
+      });
     }
-
   }
+
+
 
 
 

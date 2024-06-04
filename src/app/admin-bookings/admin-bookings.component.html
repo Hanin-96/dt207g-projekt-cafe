@@ -1,49 +1,39 @@
 <app-admin-header />
 <app-admin-navbar />
 
-<div class="bookings-wrap-admin" [ngStyle]="{'background-image': 'url(' + patternImg  + ')'}">
+<div class="bookings-wrap" [ngStyle]="{'background-image': 'url(' + patternImg  + ')'}">
     <h2>Bordsbokningar</h2>
+    <div class="bookings-admin-table-wrap">
+        <table>
+            <tr>
+                <th>Namn:</th>
+                <th>Telefon:</th>
+                <th>Email</th>
+                <th>Antal gäster</th>
+                <th>Datum</th>
+                <th>Tid</th>
+                <th>Meddelande:</th>
+            </tr>
+            <tr *ngFor="let bookingData of getBookings" class="admin-bookings">
+                <td>{{ bookingData.firstname}} {{ bookingData.lastname}}</td>
+                <td>{{ bookingData.phonenumber}}</td>
+                <td>{{ bookingData.email}}</td>
+                <td>{{ bookingData.guests}}</td>
+                <td>{{ bookingData.date}}</td>
+                <td>kl:{{ bookingData.time}}</td>
+                <td>{{ bookingData.bookingMessage}}</td>
 
-    <span class="bookings-line"></span>
-    <div class="bookings-admin-wrap">
+                <td class="table-btn" colspan="6">
+                    <div class="btn-bookings-admin">
+                        <button (click)="updateBooking()">Redigera</button>
+                        <button>Ta bort</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
 
-        <div *ngFor="let bookingData of getBookings" class="admin-bookings">
 
-            <div class="customer-info">
-                <ul>
-                    <li>Bokning:</li>
-                    <li>{{bookingData.firstname}} {{bookingData.lastname}}</li>
-                    <li>{{bookingData.phonenumber}}</li>
-                    <li>{{bookingData.email}}</li>
-                </ul>
-            </div>
-
-            <div class="guests">
-                <ul>
-                    <li>Antal gäster:</li>
-                    <li>{{bookingData.guests}}</li>
-                </ul>
-            </div>
-
-            <div class="booking-time">
-                <ul>
-                    <li>Datum och tid:</li>
-                    <li>{{bookingData.date}} {{bookingData.time}}</li>
-                </ul>
-            </div>
-
-            <div class="booking-message">
-                <ul>
-                    <li>Meddelande:</li>
-                    <li>{{bookingData.bookingMessage}}</li>
-                </ul>
-            </div>
-
-            <div class="btn-bookings-admin">
-                <button>Ta bort</button>
-                <button (click)="updateBooking()">Redigera</button>
-            </div>
-        </div>
     </div>
+
     <app-admin-btn-logout />
 </div>
