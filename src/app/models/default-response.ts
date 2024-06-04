@@ -1,3 +1,3 @@
 export interface DefaultResponse {
-    message: string
+    message: string;
 }

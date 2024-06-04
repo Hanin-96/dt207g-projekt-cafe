@@ -27,7 +27,7 @@ export class AdminBookingsComponent {
   ngOnInit(): void {
     this.bookingService.getBookings().subscribe({
       next: (bookingData) => {
-        this.getBookings = bookingData.sort((a,b) => {
+        this.getBookings = bookingData.sort((a, b) => {
           //Returnera efter tidigast bokningstider
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
@@ -42,10 +42,24 @@ export class AdminBookingsComponent {
     });
   }
 
+  //Delete bokning
+  deleteBooking(bookingId: string): void {
+    this.bookingService.deleteFromBooking(bookingId).subscribe({
+      next: () => {
+        this.ngOnInit();
+      },
+      error: (error) => {
+        if (error.status == 403) {
+          localStorage.removeItem("token");
+          this.router.navigate(['/login']);
+        }
+      }
+    });
+  }
   //Uppdatera bokning
-  updateBooking():void {
-    
+  updateBooking(bookingId:string): void {
+
   }
 
-  
+
 }

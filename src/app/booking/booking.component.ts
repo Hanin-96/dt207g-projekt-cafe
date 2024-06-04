@@ -75,12 +75,10 @@ export class BookingComponent {
   }
 
   bookingConfirmBtn(): void {
-
     this.bookingSuccessMessage = "";
     this.bookingSuccessName = "";
     this.bookingSuccessDateTime = "";
     this.bookingSuccessGuests = "";
-
   }
 
 

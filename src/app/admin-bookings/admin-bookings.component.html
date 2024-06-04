@@ -26,8 +26,8 @@
 
                 <td class="table-btn" colspan="6">
                     <div class="btn-bookings-admin">
-                        <button (click)="updateBooking()">Redigera</button>
-                        <button>Ta bort</button>
+                        <button (click)="updateBooking(bookingData._id)">Redigera</button>
+                        <button (click)="deleteBooking(bookingData._id)">Ta bort</button>
                     </div>
                 </td>
             </tr>

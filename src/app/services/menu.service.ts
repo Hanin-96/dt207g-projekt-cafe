@@ -37,7 +37,6 @@ export class MenuService {
 
  
   deleteFromMenu(dish_id: string): Observable<DefaultResponse> {
-
     
      //Token för radering av maträtter
      const token = localStorage.getItem("token");
