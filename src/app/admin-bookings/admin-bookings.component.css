@@ -28,7 +28,7 @@ table tr th {
     font-size: 1.8rem;
     font-family: "Libre Bodoni", serif;
     font-weight: 400;
-    padding: 0.5rem;
+    padding: 0.5rem 3rem;
 }
 
 table tr:nth-child(1n) {
@@ -42,9 +42,10 @@ table tr:first-child {
 table tr td {
     padding: 1rem;
     font-size: 1.6rem;
+    text-align: center;
 }
 
-.btn-bookings-admin button:first-child{
+.btn-bookings-admin button:last-child{
     width: 100%;
     background-color: #1e1e1e;
     border: none;
@@ -52,10 +53,9 @@ table tr td {
     width: 100%;
     color: white;
     padding: 0.5rem;
-    margin-bottom: 1rem;
 }
 
-.btn-bookings-admin button:last-child{
+.btn-bookings-admin button:first-child{
     width: 100%;
     background-color: #F6A566;
     border: none;
@@ -63,4 +63,5 @@ table tr td {
     width: 100%;
     color: #1e1e1e;
     padding: 0.5rem;
+    margin-bottom: 1rem;
 }

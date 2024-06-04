@@ -20,16 +20,12 @@ import { MenuComponent } from '../menu/menu.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+    //Pattern
+    patternImg: string = "../assets/img/lines-pattern.png";
 
-  dishes: Menu[] = [];
 
   //Kallar på servicen
   constructor(private menuService: MenuService) { }
 
-  ngOnInit(): void {
-    this.menuService.getMenuData().subscribe(menuData => {
-      this.dishes = menuData;
-})
-  }
 
 }

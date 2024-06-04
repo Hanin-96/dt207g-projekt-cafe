@@ -5,6 +5,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { BookingService } from '../services/booking.service';
 import { Booking } from '../models/booking';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -42,7 +43,7 @@ export class BookingComponent {
     bookingMessage: new FormControl('')
   });
 
-  constructor(private addBokingService: BookingService) { }
+  constructor(private addBokingService: BookingService, private router:Router) { }
 
   //Lägg till bokning i databas
   addBooking(): void {
@@ -54,7 +55,6 @@ export class BookingComponent {
       //Vid lyckat post sparas datan 
       this.addBokingService.postBooking(this.bookingForm.value as unknown as Booking).subscribe({
         next: () => {
-
           this.bookingSuccessMessage = "Bokningsbekräftelse: Vi har tagit emot din bokning";
           this.bookingSuccessName = this.bookingForm.value.firstname + " " + this.bookingForm.value.lastname;
           this.bookingSuccessDateTime = this.bookingForm.value.date + " kl:" + this.bookingForm.value.time;
@@ -62,19 +62,25 @@ export class BookingComponent {
           this.bookingForm.reset();
           this.errorMessageForm = "";
 
-          //Tid för message
-          setTimeout(() => {
-            this.bookingSuccessMessage = "";
-            this.bookingSuccessName = "";
-            this.bookingSuccessDateTime = "";
-            this.bookingSuccessGuests = "";
-          }, 8000);
         },
         error: (error) => {
           this.errorMessageForm = error;
+          if (error.status == 403) {
+            localStorage.removeItem("token");
+            this.router.navigate(['/login']);
+          }
         }
       })
     }
+  }
+
+  bookingConfirmBtn(): void {
+
+    this.bookingSuccessMessage = "";
+    this.bookingSuccessName = "";
+    this.bookingSuccessDateTime = "";
+    this.bookingSuccessGuests = "";
+
   }
 
 

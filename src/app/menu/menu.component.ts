@@ -12,9 +12,6 @@ import { CommonModule } from '@angular/common';
 })
 export class MenuComponent {
 
-  //background-pattern
-  linesPatternImg: string = "/assets/img/lines-pattern.png";
-
   dishes: Menu[] = [];
 
   constructor(private menuService: MenuService) { }

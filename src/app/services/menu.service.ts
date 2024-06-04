@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Menu } from '../models/menu';
+import { DefaultResponse } from '../models/default-response';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class MenuService {
 
   private url: string = "https://dt207g-cafe-lugnet-webbtjanst.onrender.com/menu";
 
-  private postUrl: string = "https://dt207g-cafe-lugnet-webbtjanst.onrender.com/menu/dish"
+  private postUrl: string = "https://dt207g-cafe-lugnet-webbtjanst.onrender.com/menu/dish";
+
+  private deleteUrl: string = "https://dt207g-cafe-lugnet-webbtjanst.onrender.com/menu/";
 
   constructor(private http: HttpClient) { }
 
@@ -31,4 +34,16 @@ export class MenuService {
 
     return this.http.post<Menu>(this.postUrl, newDish, {headers});
   }
+
+ 
+  deleteFromMenu(dish_id: string): Observable<DefaultResponse> {
+
+    
+     //Token för radering av maträtter
+     const token = localStorage.getItem("token");
+     const headers = {Authorization: "Bearer " + token};
+
+    return this.http.delete<DefaultResponse>(this.deleteUrl + dish_id, {headers});
+  }
+  
 }

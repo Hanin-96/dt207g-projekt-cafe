@@ -17,7 +17,7 @@ import { AdminBtnLogoutComponent } from '../admin-btn-logout/admin-btn-logout.co
 export class AdminBookingsComponent {
 
   //Pattern
-  patternImg: string = "../assets/img/lines-pattern.png"
+  patternImg: string = "../assets/img/lines-pattern.png";
 
   getBookings: Booking[] = [];
 

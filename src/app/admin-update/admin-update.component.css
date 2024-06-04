@@ -79,21 +79,27 @@ textarea {
 }
 
 .btn-add-dish {
-    background-color: #F6A566;
+    background-color: #1C3021;
     border: none;
     box-shadow: 0px 2px 2px 0px rgb(30, 30, 30, 0.4);
     width: 100%;
     padding: 1rem;
+    color: white;
 }
 
 .btn-add-dish:hover {
     cursor: pointer;
-    background-color: #C5D4C7;
+    background-color: #F6A566;
+    color: #1e1e1e;
 }
 
 /*Ikoner*/
 fa-icon {
     margin-right: 0.5rem;
+}
+
+#check-icon {
+    color: white;
 }
 
 .trash-icon {

@@ -42,11 +42,11 @@ export class AdminUpdateComponent {
     price: new FormControl('', Validators.required)
   });
 
-  constructor(private addmenuService: MenuService, private router: Router, private menuService: MenuService) { }
+  constructor(private addmenuService: MenuService, private router: Router) { }
 
   //Hämta menyn
   ngOnInit(): void {
-    this.menuService.getMenuData().subscribe(menuData => {
+    this.addmenuService.getMenuData().subscribe(menuData => {
       this.dishes = menuData;
     })
   }
@@ -58,7 +58,7 @@ export class AdminUpdateComponent {
       this.errorMessageMenuForm = "Ange samtliga fält!";
 
     } else {
-      console.log(localStorage.getItem("token"));
+      //console.log(localStorage.getItem("token"));
       this.addmenuService.postNewDish(this.menuForm.value as unknown as Menu).subscribe({
         next: () => {
           this.errorMessageMenuForm = "";
@@ -66,7 +66,7 @@ export class AdminUpdateComponent {
           this.ngOnInit();
         },
         error: (error) => {
-          this.errorMessageMenuForm = error.error;
+          this.errorMessageMenuForm = "Okänt fel: Det gick inte att lägga till";
           if (error.status == 403) {
             localStorage.removeItem("token");
             this.router.navigate(['/login']);
@@ -76,7 +76,20 @@ export class AdminUpdateComponent {
     }
   }
 
-
+  //Ta bort maträtt från menyn
+  deleteDishFromMenu(dishId: string): void {
+    this.addmenuService.deleteFromMenu(dishId).subscribe({
+      next: () => {
+        this.ngOnInit();
+      },
+      error: (error) => {
+        if (error.status == 403) {
+          localStorage.removeItem("token");
+          this.router.navigate(['/login']);
+        }
+      }
+    });
+  }
 
 
 

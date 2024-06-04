@@ -25,7 +25,7 @@
 
                     <td class="table-btn" colspan="6">
                         <div class="btn-dish">
-                            <button class="btn-delete"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
+                            <button class="btn-delete" (click)="deleteDishFromMenu(menuData._id)"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
                             <button class="btn-edit"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
                         </div>
                     </td>
@@ -49,12 +49,11 @@
                     <span class="menu-error" *ngIf="menuForm.controls['category'].invalid && menuForm.controls['category'].touched">Välj alternativ</span>
                     <select name="category" id="category" formControlName="category">
                         <option value="Brunch">Brunch</option>
-                        <option value="Lunch">Lunch</option>
-                        <option value="Fisk">Fisk</option>
-                        <option value="Skaldjur">Skaldjur</option>
-                        <option value="Vegetarisk">Vegetarisk</option>
-                        <option value="Lakto-ovo-vegetarisk">Lakto-ovo-vegetarisk</option>
-                        <option value="Vegansk">Vegansk</option>
+                        <option value="Mackor">Mackor</option>
+                        <option value="Sallader">Sallader</option>
+                        <option value="Bowls">Bowls</option>
+                        <option value="Soppor">Soppor</option>
+
                     </select>
                 </div>
 
@@ -82,6 +81,7 @@
                 <button class="btn-add-dish" type="submit"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Lägg till</button>
             </form>
         </div>
+        
     </section>
 
     <app-admin-btn-logout />

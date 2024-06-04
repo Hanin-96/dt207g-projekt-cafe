@@ -1,1 +1,8 @@
-
+.home-menu-wrap{
+    background-color: #F9EAD7;
+    padding-bottom: 5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    padding-top: 5rem;
+}
