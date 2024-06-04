@@ -3,27 +3,9 @@
 <app-intro />
 <app-photo-gallery />
 
-<div class="menu-wrap" [ngStyle]="{'background-image': 'url(' + linesPatternImg  + ')'}">
-    <section class="menu" id="lunchmeny">
-        <h3>Lunch Meny</h3>
-        <p>Lunch serveras mellan kl 11.00-14.00 varje dag, kaffe efter maten ingår</p>
+<app-menu />
 
-        <article *ngFor="let menuData of dishes">
-            <h5>{{menuData.title}}</h5>
-            <p>{{menuData.category}}</p>
-            <p>{{menuData.description}}</p>
-            <p class="menu-allergy">{{menuData.allergy}}</p>
-            <p class="menu-price">{{menuData.price}}kr</p>
-        </article>
 
-        <article>
-            <h4>Fika</h4>
-            <p>Vi har allt från frallar till fikabröd och bakverk.</p>
-            <p>Vi erbjuder även kalla och varma dryck efter smak.</p>
-
-        </article>
-    </section>
-</div>
 
 <app-about />
 

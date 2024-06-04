@@ -1,16 +1,21 @@
-
-
-.menu-admin-wrap {
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: white;
-    padding: 2rem;
-    box-shadow: 0px 2px 2px 0px rgb(30, 30, 30, 0.4);
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+.menu-wrap {
+    background-color: #F9EAD7;
+    min-height: min-content;
+    z-index: 4;
+    box-shadow: inset 0px 2px 2px 0px rgb(30, 30, 30, 0.4);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
+.menu {
+    position: relative;
+    background-color: white;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0rem auto;
+    box-shadow: 0px 2px 2px 0px rgb(30, 30, 30, 0.4);
+}
 
 .menu-price {
     font-weight: bolder;
@@ -35,7 +40,14 @@ p {
     margin-bottom: 1rem;
 }
 
+.menu-category {
+    font-size: 1.6rem;
+}
+
+.menu-category {
+    font-size: 1.6rem;
+}
+
 article {
     margin-bottom: 4rem;
 }
-

@@ -3,14 +3,14 @@ import { Component } from '@angular/core';
 import { Booking } from '../models/booking';
 import { BookingService } from '../services/booking.service';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
-import { AdminMenuComponent } from '../admin-menu/admin-menu.component';
 import { AdminHeaderComponent } from '../admin-header/admin-header.component';
 import { Router } from '@angular/router';
+import { AdminBtnLogoutComponent } from '../admin-btn-logout/admin-btn-logout.component';
 
 @Component({
   selector: 'app-admin-bookings',
   standalone: true,
-  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent],
+  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, AdminBtnLogoutComponent],
   templateUrl: './admin-bookings.component.html',
   styleUrl: './admin-bookings.component.css'
 })

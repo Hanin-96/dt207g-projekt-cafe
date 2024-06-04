@@ -39,6 +39,6 @@ export class BookingService {
     const token = localStorage.getItem("token");
     const headers = {Authorization: "Bearer " + token};
 
-    return this.http.put<Booking>(this.putUrl, updateBooking, {headers})
+    return this.http.put<Booking>(this.putUrl, updateBooking, {headers});
   }
 }

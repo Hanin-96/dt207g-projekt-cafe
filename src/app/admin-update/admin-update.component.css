@@ -1,0 +1,88 @@
+.admin-main {
+    background-color: #F9EAD7;
+    padding-bottom: 2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+
+section {
+    width: 100%;
+}
+
+h3 {
+    text-align: center;
+}
+
+.book-form-wrap {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+label {
+    display: block;
+    font-size: 1.8rem;
+}
+
+input {
+    width: 100%;
+    max-width: 800px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+select {
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 10rem;
+    padding: 1rem;
+
+}
+
+input, select, textarea {
+    border: 1.5px solid rgb(30, 30, 30, 0.2);
+    box-shadow: 0px 2px 4px 0px rgb(30, 30, 30, 0.2);
+    margin-top: 0.5rem;
+
+}
+
+.btn-add-dish {
+    background-color: #F6A566;
+    border: none;
+    box-shadow: 0px 2px 2px 0px rgb(30, 30, 30, 0.4);
+    width: 100%;
+    padding: 1rem;
+}
+
+.btn-add-dish:hover {
+    cursor: pointer;
+    background-color: #C5D4C7;
+}
+
+fa-icon {
+    margin-right: 0.5rem;
+}
+
+/*error-meddelande*/
+span.menu-error {
+    display: block;
+    font-size: 1.6rem;
+    font-style: italic;
+}
+
+.error-form-message {
+    display: block;
+    font-size: 1.8rem;
+    font-style: italic;
+}

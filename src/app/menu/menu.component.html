@@ -1,12 +1,12 @@
-<section class="menu">
-    <div class="menu-admin-wrap">
+<div class="menu-wrap" [ngStyle]="{'background-image': 'url(' + linesPatternImg  + ')'}">
+    <section class="menu" id="lunchmeny">
         <h3>Lunch Meny</h3>
         <p>Lunch serveras mellan kl 11.00-14.00 varje dag, kaffe efter maten ingår</p>
 
         <article *ngFor="let menuData of dishes">
             <h5>{{menuData.title}}</h5>
-            <p>{{menuData.category}}</p>
             <p>{{menuData.description}}</p>
+            <p class="menu-category">{{menuData.category}}</p>
             <p class="menu-allergy">{{menuData.allergy}}</p>
             <p class="menu-price">{{menuData.price}}kr</p>
         </article>
@@ -17,5 +17,5 @@
             <p>Vi erbjuder även kalla och varma dryck efter smak.</p>
 
         </article>
-    </div>
-</section>
+    </section>
+</div>

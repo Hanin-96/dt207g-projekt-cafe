@@ -1,16 +1,19 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Menu } from '../models/menu';
 import { MenuService } from '../services/menu.service';
+import { Menu } from '../models/menu';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-admin-menu',
+  selector: 'app-menu',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './admin-menu.component.html',
-  styleUrl: './admin-menu.component.css'
+  templateUrl: './menu.component.html',
+  styleUrl: './menu.component.css'
 })
-export class AdminMenuComponent {
+export class MenuComponent {
+
+  //background-pattern
+  linesPatternImg: string = "/assets/img/lines-pattern.png";
 
   dishes: Menu[] = [];
 
@@ -19,7 +22,7 @@ export class AdminMenuComponent {
   ngOnInit(): void {
     this.menuService.getMenuData().subscribe(menuData => {
       this.dishes = menuData;
-})
+    })
   }
 
 }

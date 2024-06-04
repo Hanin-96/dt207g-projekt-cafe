@@ -5,7 +5,6 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { BookingService } from '../services/booking.service';
 import { Booking } from '../models/booking';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -43,7 +42,7 @@ export class BookingComponent {
     bookingMessage: new FormControl('')
   });
 
-  constructor(private addBokingService: BookingService, private route: Router) { }
+  constructor(private addBokingService: BookingService) { }
 
   //Lägg till bokning i databas
   addBooking(): void {
