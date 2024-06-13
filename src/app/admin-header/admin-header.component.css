@@ -27,6 +27,11 @@
     transform: translate(0%, -50%);
 }
 
+.admin-login a:hover {
+    border-bottom: 1.5px solid white;
+    
+}
+
 .admin-login a {
     color: white;
     text-decoration: none;

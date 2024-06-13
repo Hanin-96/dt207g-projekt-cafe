@@ -6,6 +6,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { AdminBtnLogoutComponent } from '../admin-btn-logout/admin-btn-logout.component';
 import { MenuComponent } from '../menu/menu.component';
+import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -17,12 +20,29 @@ import { MenuComponent } from '../menu/menu.component';
 })
 export class AdminComponent {
 
-    //Ikon
-    faArrowRightToBracketIcon = faArrowRightToBracket;
+  //Ikon
+  faArrowRightToBracketIcon = faArrowRightToBracket;
 
-    
-    //Bakgrundsbild
-    linesPatternImg: string = "/assets/img/lines-pattern.png";
+
+  //Bakgrundsbild
+  linesPatternImg: string = "/assets/img/lines-pattern.png";
+
+  constructor(private loginService: LoginService, private router: Router) { }
+
+  ngOnInit(): void {
+    //Kontrollerar att man fortfarande är inloggad
+    this.loginService.adminAuth().subscribe({
+      next: (adminResponse) => {
+      },
+      //Om inte loggas man ut
+      error: (error) => {
+        if (error.status == 403) {
+          localStorage.removeItem("token");
+          this.router.navigate(['/login']);
+        }
+      }
+    });
+  }
 
 
 }

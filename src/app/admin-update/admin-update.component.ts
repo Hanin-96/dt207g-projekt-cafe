@@ -9,6 +9,7 @@ import { Menu } from '../models/menu';
 import { faCircleCheck, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-admin-update',
@@ -42,17 +43,33 @@ export class AdminUpdateComponent {
     category: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
     allergy: new FormControl(''),
-    price: new FormControl('', Validators.required)
+    price: new FormControl('', [Validators.required, Validators.min(1)])
   });
 
-  constructor(private menuService: MenuService, private router: Router) { }
+  constructor(private menuService: MenuService,  private loginService: LoginService, private router: Router) { }
 
   //Hämta menyn
   ngOnInit(): void {
-    this.menuService.getMenuData().subscribe(menuData => {
-      this.dishes = menuData;
-    })
+    //Kontrollerar att man fortfarande är inloggad
+    this.loginService.adminAuth().subscribe({
+      next: (adminResponse) => {
+      },
+       //Om inte loggas man ut
+      error: (error) => {
+        if (error.status == 403) {
+          localStorage.removeItem("token");
+          this.router.navigate(['/login']);
+        }
+      }
+    });
+
+    this.menuService.getMenuData().subscribe({
+      next: (menuData) => {
+        return this.dishes = menuData;
+      }
+    });
   }
+
 
   //Lägga till i menyn
   addMenu(): void {
@@ -116,7 +133,19 @@ export class AdminUpdateComponent {
 
   //Uppdatera ändring av maträtt
   updateDish(): void {
-
+    this.menuService.updateFromMenu(this.dishIdToUpdate, this.menuForm.value as unknown as Menu).subscribe({
+      next: () => {
+        this.ngOnInit();
+        this.dishIdToUpdate = "";
+        this.menuForm.reset();
+      },
+      error: (error) => {
+        if (error.status == 403) {
+          localStorage.removeItem("token");
+          this.router.navigate(['/login']);
+        }
+      }
+    });
   }
 
 

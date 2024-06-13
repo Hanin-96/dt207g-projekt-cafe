@@ -21,6 +21,9 @@ export class AdminBookingsComponent {
 
   getBookings: Booking[] = [];
 
+  //Bokning som ska uppdateras
+  bookingIdToUpdate: string = "";
+
   constructor(private bookingService: BookingService, private router: Router) { }
 
 
@@ -57,7 +60,7 @@ export class AdminBookingsComponent {
     });
   }
   //Uppdatera bokning
-  updateBooking(bookingId:string): void {
+  updateBooking(bookingId: string): void {
 
   }
 

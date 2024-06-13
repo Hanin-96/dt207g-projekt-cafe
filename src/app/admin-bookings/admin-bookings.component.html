@@ -32,8 +32,11 @@
                 </td>
             </tr>
         </table>
+    </div>
 
-
+    <div class="bookings-form-wrap">
+        <h2 *ngIf="bookingIdToUpdate==''">Lägg till bokning</h2>
+        <h2 *ngIf="bookingIdToUpdate!=''">Redigera bokning</h2>
     </div>
 
     <app-admin-btn-logout />

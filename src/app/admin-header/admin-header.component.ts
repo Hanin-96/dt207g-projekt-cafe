@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -13,7 +13,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AdminHeaderComponent {
 
-  faUserIcon = faUser;
+   //Ikon
+   faArrowRightToBracketIcon = faArrowRightToBracket;
   patternImg: string = "assets/img/pattern-bg-2.png";
   cafeLogo: string = "assets/img/logotyp.svg"
 
