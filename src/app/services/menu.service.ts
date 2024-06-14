@@ -38,22 +38,22 @@ export class MenuService {
   }
 
   //Ta bort maträtt
-  deleteFromMenu(dish_id: string): Observable<DefaultResponse> {
+  deleteFromMenu(dishId: string): Observable<DefaultResponse> {
 
     //Token för radering av maträtter
     const token = localStorage.getItem("token");
     const headers = { Authorization: "Bearer " + token };
 
-    return this.http.delete<DefaultResponse>(this.deleteUrl + dish_id, { headers });
+    return this.http.delete<DefaultResponse>(this.deleteUrl + dishId, { headers });
   }
 
   //Uppdatera maträtt
-  updateFromMenu(dish_id: string, updatedDish: Menu): Observable<DefaultResponse> {
+  updateFromMenu(dishId: string, updatedDish: Menu): Observable<DefaultResponse> {
     //Token för radering av maträtter
     const token = localStorage.getItem("token");
     const headers = { Authorization: "Bearer " + token };
 
-    return this.http.put<DefaultResponse>(this.updateUrl + dish_id, updatedDish, { headers });
+    return this.http.put<DefaultResponse>(this.updateUrl + dishId, updatedDish, { headers });
 
   }
 

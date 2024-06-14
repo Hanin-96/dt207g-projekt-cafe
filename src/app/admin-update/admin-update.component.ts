@@ -46,7 +46,7 @@ export class AdminUpdateComponent {
     price: new FormControl('', [Validators.required, Validators.min(1)])
   });
 
-  constructor(private menuService: MenuService,  private loginService: LoginService, private router: Router) { }
+  constructor(private menuService: MenuService, private loginService: LoginService, private router: Router) { }
 
   //Hämta menyn
   ngOnInit(): void {
@@ -54,7 +54,7 @@ export class AdminUpdateComponent {
     this.loginService.adminAuth().subscribe({
       next: (adminResponse) => {
       },
-       //Om inte loggas man ut
+      //Om inte loggas man ut
       error: (error) => {
         if (error.status == 403) {
           localStorage.removeItem("token");
@@ -146,6 +146,14 @@ export class AdminUpdateComponent {
         }
       }
     });
+  }
+
+  addOrUpdateMenu() {
+    if (this.dishIdToUpdate == "") {
+      this.addMenu();
+    } else {
+      this.updateDish();
+    }
   }
 
 

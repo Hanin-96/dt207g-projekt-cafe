@@ -38,7 +38,7 @@
             <h2 *ngIf="dishIdToUpdate!=''">Redigera maträtt</h2>
 
 
-            <form [formGroup]="menuForm" class="add-dish-form">
+            <form [formGroup]="menuForm" class="add-dish-form" (ngSubmit)="addOrUpdateMenu()">
 
                 <div class="dish-title">
                     <label for="title">Titel:</label>
@@ -80,10 +80,10 @@
                 <p class="error-form-message">{{errorMessageMenuForm}}</p>
                 }
 
-                <button *ngIf="dishIdToUpdate==''" class="btn-add-dish" (click)="addMenu()"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Lägg till</button>
+                <button *ngIf="dishIdToUpdate==''" class="btn-add-dish" type="submit"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Lägg till</button>
 
                 <ng-container *ngIf="dishIdToUpdate!=''">
-                    <button class="btn-add-dish" (click)="updateDish()">Uppdatera</button>
+                    <button class="btn-add-dish" type="submit">Uppdatera</button>
                     <button class="btn-abort" (click)="abortUpdate()">Avbryt</button>
                 </ng-container>
             </form>

@@ -1,9 +1,10 @@
 section {
     width: 100%;
-    background-color: #FEF5ED;
 }
 
-h3 {
+h2 {
+    font-size: 4.2rem;
+    padding: 2rem;
     text-align: center;
 }
 

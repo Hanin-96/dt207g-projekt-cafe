@@ -2,42 +2,43 @@
 <app-admin-navbar />
 
 <div class="bookings-wrap" [ngStyle]="{'background-image': 'url(' + patternImg  + ')'}">
-    <h2>Bordsbokningar</h2>
     <div class="bookings-admin-table-wrap">
-        <table>
-            <tr>
-                <th>Namn:</th>
-                <th>Telefon:</th>
-                <th>Email</th>
-                <th>Antal gäster</th>
-                <th>Datum</th>
-                <th>Tid</th>
-                <th>Meddelande:</th>
-                <th></th>
-            </tr>
-            <tr *ngFor="let bookingData of getBookings" class="admin-bookings">
-                <td>{{ bookingData.firstname}} {{ bookingData.lastname}}</td>
-                <td>{{ bookingData.phonenumber}}</td>
-                <td>{{ bookingData.email}}</td>
-                <td>{{ bookingData.guests}}</td>
-                <td>{{ bookingData.date}}</td>
-                <td>kl:{{ bookingData.time}}</td>
-                <td>{{ bookingData.bookingMessage}}</td>
 
-                <td class="table-btn" colspan="6">
-                    <div class="btn-bookings-admin">
-                        <button (click)="updateBooking(bookingData._id)">Redigera</button>
-                        <button (click)="deleteBooking(bookingData._id)">Ta bort</button>
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <div #bookingWrapForm>
+            <app-booking #bookingComponent [bookingId]="bookingIdToUpdate" [useBackground]="false" (updateEvent)="updatedBooking(bookingTable)" />
+        </div>
+        <div class="booking-table-container">
+            <h2 #bookingTable>Bordsbokningar</h2>
+            <table>
+                <tr>
+                    <th>Namn:</th>
+                    <th>Telefon:</th>
+                    <th>Email</th>
+                    <th>Antal gäster</th>
+                    <th>Datum</th>
+                    <th>Tid</th>
+                    <th>Meddelande:</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let bookingData of getBookings" class="admin-bookings">
+                    <td data-label="Namn: ">{{ bookingData.firstname}} {{ bookingData.lastname}}</td>
+                    <td data-label="Mobilnummer: ">{{ bookingData.phonenumber}}</td>
+                    <td data-label="Epost: ">{{ bookingData.email}}</td>
+                    <td data-label="Antal gäster: ">{{ bookingData.guests}}</td>
+                    <td data-label="Datum: ">{{ bookingData.date}}</td>
+                    <td data-label="Tid: ">kl:{{ bookingData.time}}</td>
+                    <td data-label="Meddelande: ">{{ bookingData.bookingMessage}}</td>
+
+                    <td class="table-btn" colspan="6">
+                        <div class="btn-bookings-admin">
+                            <button (click)="updateBooking(bookingWrapForm, bookingData, bookingComponent)"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
+                            <button (click)="deleteBooking(bookingData._id)"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
     </div>
 
-    <div class="bookings-form-wrap">
-        <h2 *ngIf="bookingIdToUpdate==''">Lägg till bokning</h2>
-        <h2 *ngIf="bookingIdToUpdate!=''">Redigera bokning</h2>
-    </div>
-
-    <app-admin-btn-logout />
 </div>

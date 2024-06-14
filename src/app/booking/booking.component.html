@@ -1,7 +1,9 @@
-<section id="bokabord">
+<section id="bokabord" [ngStyle]="{'background-color': useBackground ? '#FEF5ED' : 'none'}">
+
     <div class="book-form-wrap">
-        <form [formGroup]="bookingForm" (ngSubmit)="addBooking()">
-            <h3>Boka bord</h3>
+        <form [formGroup]="bookingForm" (ngSubmit)="addOrUpdateBooking()">
+            <h2 *ngIf="bookingId==''">Boka bord</h2>
+            <h2 *ngIf="bookingId!=''">Redigera bokning</h2>
 
             <div class="book-name">
                 <label for="firstname">Förnamn:</label>
@@ -17,7 +19,7 @@
 
 
             <div class="book-mobile">
-                <label for="phonenumber">Mobilnummer:</label>
+                <label for="mobile">Mobilnummer:</label>
                 <span class="booking-error" *ngIf="bookingForm.controls['phonenumber'].invalid && bookingForm.controls['phonenumber'].touched">Ange Mobilnummer</span>
                 <input type="text" name="mobile" id="mobile" placeholder="Ange din mobilnummer" formControlName="phonenumber">
             </div>
@@ -68,7 +70,7 @@
 
             <div class="book-message">
                 <label for="message">Meddelande:</label>
-                <textarea name="text" id="message" placeholder="Särskilda önskemål" formControlName="bookingMessage"></textarea>
+                <textarea name="message" id="message" placeholder="Särskilda önskemål" formControlName="bookingMessage"></textarea>
             </div>
 
             @if(errorMessageForm != "") {
@@ -76,7 +78,12 @@
             }
 
 
-            <button class="btn-book-table" type="submit"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Boka bord</button>
+            <button *ngIf="bookingId==''" class="btn-book-table" type="submit"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Boka bord</button>
+
+            <ng-container *ngIf="bookingId!=''">
+                <button class="btn-book-table" type="submit">Uppdatera</button>
+                <button class="btn-abort" (click)="abortUpdate()">Avbryt</button>
+            </ng-container>
 
             @if(bookingSuccessMessage != "") {
 

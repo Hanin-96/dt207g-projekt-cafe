@@ -6,11 +6,14 @@ import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
 import { AdminHeaderComponent } from '../admin-header/admin-header.component';
 import { Router } from '@angular/router';
 import { AdminBtnLogoutComponent } from '../admin-btn-logout/admin-btn-logout.component';
+import { faCircleCheck, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BookingComponent } from '../booking/booking.component';
 
 @Component({
   selector: 'app-admin-bookings',
   standalone: true,
-  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, AdminBtnLogoutComponent],
+  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, AdminBtnLogoutComponent, FontAwesomeModule, BookingComponent],
   templateUrl: './admin-bookings.component.html',
   styleUrl: './admin-bookings.component.css'
 })
@@ -23,6 +26,13 @@ export class AdminBookingsComponent {
 
   //Bokning som ska uppdateras
   bookingIdToUpdate: string = "";
+
+  //Ikon
+  faCircleCheckIcon = faCircleCheck;
+  faTrashIcon = faTrash;
+  faPenIcon = faPenToSquare;
+
+
 
   constructor(private bookingService: BookingService, private router: Router) { }
 
@@ -38,6 +48,7 @@ export class AdminBookingsComponent {
       },
       error: (error) => {
         if (error.status == 403) {
+          //Tar bort token och man loggas ut
           localStorage.removeItem("token");
           this.router.navigate(['/login']);
         }
@@ -45,7 +56,7 @@ export class AdminBookingsComponent {
     });
   }
 
-  //Delete bokning
+  //Ta bort bokning
   deleteBooking(bookingId: string): void {
     this.bookingService.deleteFromBooking(bookingId).subscribe({
       next: () => {
@@ -59,8 +70,21 @@ export class AdminBookingsComponent {
       }
     });
   }
+
   //Uppdatera bokning
-  updateBooking(bookingId: string): void {
+  updateBooking(el: HTMLElement, booking: Booking, bookingComponent: BookingComponent): void {
+    //Hämtat bokningsId
+    this.bookingIdToUpdate = booking._id;
+
+    bookingComponent.populateBookingFromBooking(booking);
+    el.scrollIntoView({ behavior: "smooth" });
+
+  }
+
+  updatedBooking(el: HTMLElement) {
+    this.ngOnInit();
+    this.bookingIdToUpdate = "";
+    el.scrollIntoView({ behavior: "smooth" });
 
   }
 
