@@ -1,9 +1,9 @@
 <section id="bokabord" [ngStyle]="{'background-color': useBackground ? '#FEF5ED' : 'none'}">
 
     <div class="book-form-wrap">
-        <form [formGroup]="bookingForm" (ngSubmit)="addOrUpdateBooking()">
-            <h2 *ngIf="bookingId==''">Boka bord</h2>
-            <h2 *ngIf="bookingId!=''">Redigera bokning</h2>
+        <h2 *ngIf="bookingId==''">Boka bord</h2>
+        <h2 *ngIf="bookingId!=''">Redigera bokning</h2>
+        <form [formGroup]="bookingForm" (ngSubmit)="addOrUpdateBooking()" [ngStyle]="{'background-color': useBackground ? 'none' : 'white', 'padding': useBackground ? 'none' : '2rem', 'box-shadow': useBackground ? 'none' : '0px 2px 2px 0px rgb(30, 30, 30, 0.4)'}">
 
             <div class="book-name">
                 <label for="firstname">Förnamn:</label>
@@ -89,7 +89,7 @@
 
             <div class="booking-confirm">
                 <ul>
-                    <li>{{bookingSuccessMessage}}  </li>
+                    <li>{{bookingSuccessMessage}} </li>
                     <li>Namn: {{bookingSuccessName}}</li>
                     <li> Datum och tid: {{bookingSuccessDateTime}}</li>
                     <li>Antal gäster: {{bookingSuccessGuests}} pers</li>

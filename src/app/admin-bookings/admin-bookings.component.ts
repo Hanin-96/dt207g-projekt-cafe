@@ -5,7 +5,6 @@ import { BookingService } from '../services/booking.service';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
 import { AdminHeaderComponent } from '../admin-header/admin-header.component';
 import { Router } from '@angular/router';
-import { AdminBtnLogoutComponent } from '../admin-btn-logout/admin-btn-logout.component';
 import { faCircleCheck, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BookingComponent } from '../booking/booking.component';
@@ -13,7 +12,7 @@ import { BookingComponent } from '../booking/booking.component';
 @Component({
   selector: 'app-admin-bookings',
   standalone: true,
-  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, AdminBtnLogoutComponent, FontAwesomeModule, BookingComponent],
+  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, FontAwesomeModule, BookingComponent],
   templateUrl: './admin-bookings.component.html',
   styleUrl: './admin-bookings.component.css'
 })

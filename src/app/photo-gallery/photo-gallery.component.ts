@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { TimeStringsComponent } from '../time-strings/time-strings.component';
 
 @Component({
   selector: 'app-photo-gallery',
@@ -17,8 +18,11 @@ export class PhotoGalleryComponent {
   //bg-pattern
   imgPatternSquare: string = ("assets/img/pattern-bg-2.png");
 
-  timeWeekday: string = "Mån - Fre: 10:00-18:00";
-  timeWeekend: string = "Lör - Sön: 10:00-17:00";
-  timeLunch: string = "Lunch: 11:00-14:00";
+  //Hjälpkomponent för återanvändning 
+  timesStringsComponent: TimeStringsComponent;
+
+  constructor() {
+    this.timesStringsComponent = new TimeStringsComponent()
+  }
 
 }

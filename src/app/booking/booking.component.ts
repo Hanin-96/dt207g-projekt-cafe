@@ -36,6 +36,9 @@ export class BookingComponent {
   //Input för backgrund
   @Input() useBackground: boolean = true;
 
+  //Display text endast för kund
+  @Input() displaySuccessMessage: boolean = true;
+
   //Output 
   @Output() updateEvent = new EventEmitter<Booking>();
 
@@ -64,10 +67,13 @@ export class BookingComponent {
       //Vid lyckat post sparas datan 
       this.bookingService.postBooking(this.bookingForm.value as unknown as Booking).subscribe({
         next: () => {
-          this.bookingSuccessMessage = "Bokningsbekräftelse: Vi har tagit emot din bokning";
-          this.bookingSuccessName = this.bookingForm.value.firstname + " " + this.bookingForm.value.lastname;
-          this.bookingSuccessDateTime = this.bookingForm.value.date + " kl:" + this.bookingForm.value.time;
-          this.bookingSuccessGuests = this.bookingForm.value.guests + "";
+          if (this.displaySuccessMessage == true) {
+
+            this.bookingSuccessMessage = "Bokningsbekräftelse: Vi har tagit emot din bokning";
+            this.bookingSuccessName = this.bookingForm.value.firstname + " " + this.bookingForm.value.lastname;
+            this.bookingSuccessDateTime = this.bookingForm.value.date + " kl:" + this.bookingForm.value.time;
+            this.bookingSuccessGuests = this.bookingForm.value.guests + "";
+          }
           this.bookingForm.reset();
           this.errorMessageForm = "";
           this.addUpdatedBooking();
@@ -75,7 +81,7 @@ export class BookingComponent {
         },
         error: (error) => {
           this.errorMessageForm = error;
-          if (error.status == 403) {
+          if (error.status == 403) { 
             localStorage.removeItem("token");
             this.router.navigate(['/login']);
           }
@@ -108,6 +114,7 @@ export class BookingComponent {
     this.bookingForm.reset();
   }
 
+  //Uppdatera bokning
   updateBooking(): void {
     this.bookingService.updateBooking(this.bookingId, this.bookingForm.value as unknown as Booking).subscribe({
       next: () => {
@@ -129,7 +136,7 @@ export class BookingComponent {
     this.updateEvent.emit();
   }
 
-
+  //Om bokningsId är tomt då ska ny bokning funktion kallas annars uppdateras existerande
   addOrUpdateBooking(): void {
     if (this.bookingId == "") {
       this.addBooking();

@@ -4,7 +4,6 @@ import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
 import { AdminHeaderComponent } from '../admin-header/admin-header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import { AdminBtnLogoutComponent } from '../admin-btn-logout/admin-btn-logout.component';
 import { MenuComponent } from '../menu/menu.component';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
@@ -14,7 +13,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, FontAwesomeModule, AdminBtnLogoutComponent, AdminComponent, MenuComponent],
+  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, FontAwesomeModule, AdminComponent, MenuComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })

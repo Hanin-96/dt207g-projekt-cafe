@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AdminHeaderComponent } from '../admin-header/admin-header.component';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
 import { CommonModule } from '@angular/common';
-import { AdminBtnLogoutComponent } from '../admin-btn-logout/admin-btn-logout.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MenuService } from '../services/menu.service';
 import { Menu } from '../models/menu';
@@ -14,7 +13,7 @@ import { LoginService } from '../services/login.service';
 @Component({
   selector: 'app-admin-update',
   standalone: true,
-  imports: [AdminHeaderComponent, AdminNavbarComponent, CommonModule, AdminBtnLogoutComponent, ReactiveFormsModule, FontAwesomeModule],
+  imports: [AdminHeaderComponent, AdminNavbarComponent, CommonModule, ReactiveFormsModule, FontAwesomeModule],
   templateUrl: './admin-update.component.html',
   styleUrl: './admin-update.component.css'
 })
