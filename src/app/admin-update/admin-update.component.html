@@ -17,11 +17,11 @@
                     <th></th>
                 </tr>
                 <tr *ngFor="let menuData of dishes">
-                    <td>{{ menuData.title}}</td>
-                    <td>{{ menuData.description}}</td>
-                    <td>{{ menuData.category}}</td>
-                    <td>{{ menuData.allergy}}</td>
-                    <td>{{ menuData.price}}kr</td>
+                    <td data-label="Titel: ">{{ menuData.title}}</td>
+                    <td data-label="Beskrivning: ">{{ menuData.description}}</td>
+                    <td data-label="Kategori: ">{{ menuData.category}}</td>
+                    <td data-label="Allergifri: ">{{ menuData.allergy}}</td>
+                    <td data-label="Pris: ">{{ menuData.price}}kr</td>
 
                     <td class="table-btn" colspan="6">
                         <div class="btn-dish">
@@ -55,7 +55,6 @@
                         <option value="Sallader">Sallader</option>
                         <option value="Bowls">Bowls</option>
                         <option value="Soppor">Soppor</option>
-
                     </select>
                 </div>
 

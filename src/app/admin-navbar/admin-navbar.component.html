@@ -1,5 +1,8 @@
 <nav>
-    <ul>
+    <div class="hamburger" (click)="menuToggle()">
+        <fa-icon [icon]="isMenuActivated ? faXMarkIcon : faBarsIcon"></fa-icon>
+    </div>
+    <ul  [ngClass]="{'active': isMenuActivated}">
         <li><a routerLink="/admin" routerLinkActive="activeLink">Meny</a></li>
         <li><a routerLink="/hanterameny" routerLinkActive="activeLink">Hantera Meny</a></li>
         <li><a routerLink="/bokningar" routerLinkActive="activeLink">Hantera Bokningar</a></li>

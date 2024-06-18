@@ -1,9 +1,13 @@
+<nav>
+    <div class="hamburger" (click)="menuToggle()">
+        <fa-icon [icon]="isMenuActivated ? faXMarkIcon : faBarsIcon"></fa-icon>
+    </div>
+    <ul [ngClass]="{'active': isMenuActivated}">
+        <li><a href="#lunchmeny" (click)="closeMenu()">Meny</a></li>
+        <li><a href="#om" (click)="closeMenu()">Om oss</a></li>
+        <li><a href="#hittahit" (click)="closeMenu()">Hitta hit</a></li>
+        <li><a href="#kontakt" (click)="closeMenu()">Kontakta oss</a></li>
+        <li><a href="#bokabord" (click)="closeMenu()">Boka bord</a></li>
+    </ul>
 
-    <nav>
-        <ul>
-            <li><a href="#intro">Startsida</a></li>
-            <li><a href="#lunchmeny">Meny</a></li>
-            <li><a href="#om">Om oss</a></li>
-            <li><a href="#bokabord">Boka bord</a></li>
-        </ul>
-    </nav>
+</nav>

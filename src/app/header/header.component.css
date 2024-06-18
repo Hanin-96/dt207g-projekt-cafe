@@ -37,6 +37,10 @@
     font-family: "Libre Bodoni", serif;
 }
 
+.admin-login a:hover {
+    border-bottom: 1.5px solid white;
+}
+
 #user-icon {
     margin: 0.5rem;
 }
@@ -119,3 +123,13 @@ fa-icon {
         filter: grayscale(0) blur(2px);
     }
   }
+
+  /*Media queries för mindre skärm*/
+@media screen and (max-width: 850px) {
+    
+.hero-img {
+    animation: none;
+    filter: none;
+}
+
+}

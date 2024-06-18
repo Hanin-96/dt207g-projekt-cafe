@@ -57,6 +57,11 @@ input, select, textarea {
 
 }
 
+.book-guests label {
+    max-width: 400px;
+    width: 100%;
+}
+
 .btn-book-table {
     background-color: #1C3021;
     border: none;
@@ -98,6 +103,10 @@ input, select, textarea {
 
 fa-icon {
     margin-right: 0.5rem;
+    color: #1e1e1e;
+}
+
+#check-icon {
     color: white;
 }
 
