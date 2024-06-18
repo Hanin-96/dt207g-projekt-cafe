@@ -4,7 +4,7 @@
         <div class="contact-list">
             <ul>
                 <li><fa-icon [icon]="faPhoneIcon" id="phone-icon"></fa-icon>Telefon:</li>
-                <li><fa-icon [icon]="faEpostIcon" id="epost-icon"></fa-icon>Epost:</li>
+                <li><fa-icon [icon]="faEpostIcon" id="epost-icon"></fa-icon>E-post:</li>
                 <li><fa-icon [icon]="faLocationIcon" id="location-icon"></fa-icon>Adress:</li>
             </ul>
 
@@ -12,6 +12,18 @@
                 <li><a href="tel:040-1234567">040-1234567</a></li>
                 <li><a href="mailto:cafelugnet&commat;malmo.com">cafelugnet&commat;malmo.com</a></li>
                 <li>Södra Förstadsgatan 19A, Malmö</li>
+            </ul>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="footer-time">
+            <h5>Öppettider</h5>
+            <ul>
+                <li>{{timesStringsComponent.timeWeekday}}</li>
+                <li>{{timesStringsComponent.timeWeekend}}</li>
+                <li>{{timesStringsComponent.timeLunch}}</li>
             </ul>
         </div>
 
