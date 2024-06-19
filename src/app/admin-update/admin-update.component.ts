@@ -9,11 +9,12 @@ import { faCircleCheck, faPenToSquare, faTrash } from '@fortawesome/free-solid-s
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
+import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
 
 @Component({
   selector: 'app-admin-update',
   standalone: true,
-  imports: [AdminHeaderComponent, AdminNavbarComponent, CommonModule, ReactiveFormsModule, FontAwesomeModule],
+  imports: [AdminHeaderComponent, AdminNavbarComponent, CommonModule, ReactiveFormsModule, FontAwesomeModule, LoadingSpinnerComponent],
   templateUrl: './admin-update.component.html',
   styleUrl: './admin-update.component.css'
 })
@@ -35,6 +36,9 @@ export class AdminUpdateComponent {
 
   //Rätt som ska uppdateras
   dishIdToUpdate: string = "";
+
+  //Spinner
+  isLoading: boolean = false;
 
   //Reactive bokningsformulär
   menuForm = new FormGroup({
@@ -62,9 +66,15 @@ export class AdminUpdateComponent {
       }
     });
 
+    //Loading spinner sätts igång
+    this.isLoading = true;
+
     this.menuService.getMenuData().subscribe({
       next: (menuData) => {
-        return this.dishes = menuData;
+        //Vid lyckad anrop och hämtning av data sätts spinner till false
+        this.isLoading = false;
+        this.dishes = menuData;
+
       }
     });
   }

@@ -4,9 +4,10 @@
 
     <section id="menu-add-dish">
 
-        
+
         <div class="add-dish-menu-table">
             <h2>Redigera meny</h2>
+            <div *ngIf="!isLoading">
             <table>
                 <tr>
                     <th>Titel</th>
@@ -16,22 +17,28 @@
                     <th>Pris</th>
                     <th></th>
                 </tr>
-                <tr *ngFor="let menuData of dishes">
-                    <td data-label="Titel: ">{{ menuData.title}}</td>
-                    <td data-label="Beskrivning: ">{{ menuData.description}}</td>
-                    <td data-label="Kategori: ">{{ menuData.category}}</td>
-                    <td data-label="Allergifri: ">{{ menuData.allergy}}</td>
-                    <td data-label="Pris: ">{{ menuData.price}}kr</td>
+                    <tr *ngFor="let menuData of dishes">
+                        <td data-label="Titel: ">{{ menuData.title}}</td>
+                        <td data-label="Beskrivning: ">{{ menuData.description}}</td>
+                        <td data-label="Kategori: ">{{ menuData.category}}</td>
+                        <td data-label="Allergifri: ">{{ menuData.allergy}}</td>
+                        <td data-label="Pris: ">{{ menuData.price}}kr</td>
 
-                    <td class="table-btn" colspan="6">
-                        <div class="btn-dish">
-                            <button class="btn-delete" (click)="deleteDishFromMenu(menuData._id)"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
-                            <button class="btn-edit" (click)="updateDishFromMenu(updateMenuForm, menuData)"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
-                        </div>
-                    </td>
-                </tr>
+                        <td class="table-btn" colspan="6">
+                            <div class="btn-dish">
+                                <button class="btn-delete" (click)="deleteDishFromMenu(menuData._id)"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
+                                <button class="btn-edit" (click)="updateDishFromMenu(updateMenuForm, menuData)"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
+                            </div>
+                        </td>
+                    </tr>
+               
             </table>
         </div>
+            <!--Ifall det tar tid för anrop, ska en loading spinner dyka upp-->
+            <app-loading-spinner [isLoading]="isLoading"></app-loading-spinner>
+        </div>
+
+
 
         <div class="menu-form-wrap" #updateMenuForm>
             <h2 *ngIf="dishIdToUpdate==''">Lägg till maträtt</h2>

@@ -8,11 +8,12 @@ import { Loginresponse } from '../models/loginresponse';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [HeaderComponent, CommonModule, FormsModule, FontAwesomeModule],
+  imports: [HeaderComponent, CommonModule, FormsModule, FontAwesomeModule, LoadingSpinnerComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -35,15 +36,20 @@ export class LoginComponent {
   //Logotyp
   cafeLogo: string = "assets/img/logotyp.svg"
 
-  //Inloggning
+  //Spinner
+  isLoading: boolean = false;
+
+  //Inloggning anrop
   login(): void {
+    this.isLoading = true;
     this.loginService.login(this.username, this.password).subscribe({
       next: (response: Loginresponse) => {
+        this.isLoading = false;
         //Spara token i LocalStorage
         localStorage.setItem("token", response.token);
         this.router.navigate(['/admin']);
 
-        console.log(response.message);
+        //console.log(response.message);
       },
       error: (error) => {
         this.errorMessage = "Felaktig Användarnamn / Lösenord";
@@ -51,6 +57,7 @@ export class LoginComponent {
     });
   }
 
+  //Navigering till startsida
   backToStartBtn(): void {
     this.router.navigate(['/']);
   }

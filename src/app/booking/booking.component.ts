@@ -109,6 +109,7 @@ export class BookingComponent {
     this.bookingForm.get("bookingMessage")?.setValue(booking.bookingMessage);
   }
 
+  //Ångra ändringar
   abortUpdate(): void {
     this.bookingId = "";
     this.bookingForm.reset();

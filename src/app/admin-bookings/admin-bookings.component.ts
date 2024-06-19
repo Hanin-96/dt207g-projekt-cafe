@@ -8,11 +8,12 @@ import { Router } from '@angular/router';
 import { faCircleCheck, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BookingComponent } from '../booking/booking.component';
+import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
 
 @Component({
   selector: 'app-admin-bookings',
   standalone: true,
-  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, FontAwesomeModule, BookingComponent],
+  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, FontAwesomeModule, LoadingSpinnerComponent, BookingComponent],
   templateUrl: './admin-bookings.component.html',
   styleUrl: './admin-bookings.component.css'
 })
@@ -31,14 +32,18 @@ export class AdminBookingsComponent {
   faTrashIcon = faTrash;
   faPenIcon = faPenToSquare;
 
+  //spinner
+  isLoading: boolean = false;
 
 
   constructor(private bookingService: BookingService, private router: Router) { }
 
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.bookingService.getBookings().subscribe({
       next: (bookingData) => {
+        this.isLoading = false;
         this.getBookings = bookingData.sort((a, b) => {
           //Returnera efter tidigast bokningstider
           return new Date(a.date).getTime() - new Date(b.date).getTime();

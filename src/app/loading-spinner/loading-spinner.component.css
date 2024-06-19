@@ -1,0 +1,24 @@
+.loading-spinner-wrap {
+    margin: 0 auto;
+    max-width: fit-content;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+  
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #1C3021;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: loadingAnim 1s linear infinite;
+  }
+  
+  @keyframes loadingAnim {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
