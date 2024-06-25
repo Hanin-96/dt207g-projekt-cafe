@@ -36,6 +36,7 @@ export class BookingService {
     return this.http.get<Booking[]>(this.getUrl, { headers });
   }
 
+  //Uppdatera bokning
   updateBooking(bookingId: string, updatedBooking: Booking): Observable<Booking> {
 
     //Token för ändring av bokningar
@@ -45,6 +46,7 @@ export class BookingService {
     return this.http.put<Booking>(this.putUrl + bookingId, updatedBooking, { headers });
   }
 
+  //Ta bort bokning
   deleteFromBooking(bookingId: string): Observable<DefaultResponse> {
 
     //Token för radering av maträtter

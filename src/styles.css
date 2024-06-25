@@ -54,6 +54,11 @@ button {
     font-size: 2rem;
     font-family: "Libre Bodoni", serif;
     cursor: pointer;
+    transition: border-radius ease-in-out 0.1s;
+}
+
+button:hover {
+    border-radius: 2rem;
 }
 
 fa-icon {

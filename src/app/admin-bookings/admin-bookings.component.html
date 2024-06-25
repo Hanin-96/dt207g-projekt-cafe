@@ -5,7 +5,7 @@
     <div class="bookings-admin-table-wrap">
 
         <div #bookingWrapForm>
-            <app-booking #bookingComponent [bookingId]="bookingIdToUpdate" [useBackground]="false" [displaySuccessMessage]="false" (updateEvent)="updatedBooking(bookingTable)" />
+            <app-booking #bookingComponent [bookingId]="bookingIdToUpdate" [useBackground]="false" [displaySuccessMessage]="false" (updateEvent)="updatedBookingForm(bookingTable)" />
         </div>
         <div class="booking-table-container">
             <h2 #bookingTable>Bordsbokningar</h2>
@@ -40,9 +40,11 @@
                 </table>
             </div>
             <!--Ifall det tar tid för anrop, ska en loading spinner dyka upp-->
-            <app-loading-spinner [isLoading]="isLoading"></app-loading-spinner>
+            <app-loading-spinner [isLoadingSpinner]="isLoading"></app-loading-spinner>
         </div>
 
     </div>
 
 </div>
+
+<app-footer />

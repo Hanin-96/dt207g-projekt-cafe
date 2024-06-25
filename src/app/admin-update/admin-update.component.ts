@@ -10,11 +10,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-admin-update',
   standalone: true,
-  imports: [AdminHeaderComponent, AdminNavbarComponent, CommonModule, ReactiveFormsModule, FontAwesomeModule, LoadingSpinnerComponent],
+  imports: [AdminHeaderComponent, AdminNavbarComponent, CommonModule, ReactiveFormsModule, FontAwesomeModule, LoadingSpinnerComponent, FooterComponent],
   templateUrl: './admin-update.component.html',
   styleUrl: './admin-update.component.css'
 })
@@ -39,6 +40,9 @@ export class AdminUpdateComponent {
 
   //Spinner
   isLoading: boolean = false;
+
+  //Ta bort vissa element i footer
+  isFooter: boolean = false;
 
   //Reactive bokningsformulär
   menuForm = new FormGroup({

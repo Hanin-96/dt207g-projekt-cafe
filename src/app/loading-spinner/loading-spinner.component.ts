@@ -11,6 +11,6 @@ import { Component, Input } from '@angular/core';
 export class LoadingSpinnerComponent {
 
   //Input för återanvändning av spinner i andra komponenter för hämtning av data
-  @Input() isLoading: boolean = false;
+  @Input() isLoadingSpinner: boolean = false;
 
 }

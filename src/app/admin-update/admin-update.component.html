@@ -6,7 +6,7 @@
 
 
         <div class="add-dish-menu-table">
-            <h2>Redigera meny</h2>
+            <h2>Maträtter</h2>
             <div *ngIf="!isLoading">
             <table>
                 <tr>
@@ -35,7 +35,7 @@
             </table>
         </div>
             <!--Ifall det tar tid för anrop, ska en loading spinner dyka upp-->
-            <app-loading-spinner [isLoading]="isLoading"></app-loading-spinner>
+            <app-loading-spinner [isLoadingSpinner]="isLoading"></app-loading-spinner>
         </div>
 
 
@@ -98,3 +98,5 @@
     </section>
 
 </div>
+
+<app-footer [isFooterVisible]="isFooter">

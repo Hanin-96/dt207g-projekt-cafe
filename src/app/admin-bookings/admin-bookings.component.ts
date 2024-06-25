@@ -9,11 +9,13 @@ import { faCircleCheck, faPenToSquare, faTrash } from '@fortawesome/free-solid-s
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BookingComponent } from '../booking/booking.component';
 import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
+import { FooterComponent } from '../footer/footer.component';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-admin-bookings',
   standalone: true,
-  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, FontAwesomeModule, LoadingSpinnerComponent, BookingComponent],
+  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, FontAwesomeModule, LoadingSpinnerComponent, BookingComponent, FooterComponent],
   templateUrl: './admin-bookings.component.html',
   styleUrl: './admin-bookings.component.css'
 })
@@ -32,15 +34,29 @@ export class AdminBookingsComponent {
   faTrashIcon = faTrash;
   faPenIcon = faPenToSquare;
 
-  //spinner
+  //Spinner
   isLoading: boolean = false;
 
-
-  constructor(private bookingService: BookingService, private router: Router) { }
+  constructor(private bookingService: BookingService, private router: Router, private loginService: LoginService) { }
 
 
   ngOnInit(): void {
+    //Kontrollera om man är inloggad
+    this.loginService.adminAuth().subscribe({
+      next: (adminResponse) => {
+      },
+      //Om inte loggas man ut efter token har utgått
+      error: (error) => {
+        if (error.status == 403) {
+          localStorage.removeItem("token");
+          this.router.navigate(['/login']);
+        }
+      }
+    });
+    
     this.isLoading = true;
+
+    //Hämta bokningar
     this.bookingService.getBookings().subscribe({
       next: (bookingData) => {
         this.isLoading = false;
@@ -85,11 +101,13 @@ export class AdminBookingsComponent {
 
   }
 
-  updatedBooking(el: HTMLElement) {
+  //Vid lyckad uppdatering av bokning, ska bookningsid reset, kalla på ngOnInit som hämtar aktuella bokningar
+  updatedBookingForm(el: HTMLElement) {
     this.ngOnInit();
     this.bookingIdToUpdate = "";
-    el.scrollIntoView({ behavior: "smooth" });
 
+    //Scrolla till bokningar
+    el.scrollIntoView({ behavior: "smooth" });
   }
 
 

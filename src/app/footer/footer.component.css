@@ -32,6 +32,20 @@ a {
     margin-top: 2rem;
 }
 
+/*sociala medier ikoner*/
+svg {
+    max-width: 2.4rem;
+    width: 100%;
+    fill: white;
+    margin-right: 0.5rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 /*Media queries för mindre skärm*/
 @media screen and (max-width: 850px) {
     .info-list-wrap {

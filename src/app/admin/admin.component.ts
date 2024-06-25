@@ -7,13 +7,14 @@ import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { MenuComponent } from '../menu/menu.component';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
+import { FooterComponent } from '../footer/footer.component';
 
 
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, FontAwesomeModule, AdminComponent, MenuComponent],
+  imports: [CommonModule, AdminNavbarComponent, AdminHeaderComponent, FontAwesomeModule, AdminComponent, MenuComponent, FooterComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })

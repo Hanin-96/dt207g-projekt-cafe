@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { BookingService } from '../services/booking.service';
 import { Booking } from '../models/booking';
 import { Router } from '@angular/router';
+import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
 
 @Component({
   selector: 'app-booking',
   standalone: true,
-  imports: [FontAwesomeModule, ReactiveFormsModule, CommonModule],
+  imports: [FontAwesomeModule, ReactiveFormsModule, CommonModule, LoadingSpinnerComponent],
   templateUrl: './booking.component.html',
   styleUrl: './booking.component.css'
 })
@@ -23,6 +24,9 @@ export class BookingComponent {
 
   //Error
   errorMessageForm: string = "";
+
+  //spinner
+  isLoading: boolean = false;
 
   //Bokningsbekräftelse
   bookingSuccessMessage: string = "";
@@ -64,16 +68,29 @@ export class BookingComponent {
       this.errorMessageForm = "Ange samtliga fält!";
 
     } else {
+
+      //Hindrar användare från att dubbelklicka bokningsknapp
+      if (this.isLoading) {
+        return;
+      }
+
+      //Loading spinner
+      this.isLoading = true;
+
       //Vid lyckat post sparas datan 
       this.bookingService.postBooking(this.bookingForm.value as unknown as Booking).subscribe({
         next: () => {
-          if (this.displaySuccessMessage == true) {
+          this.isLoading = false;
 
+          if (this.displaySuccessMessage === true) {
+
+            //Skriver ut bekräftelse vid bordsbokning
             this.bookingSuccessMessage = "Bokningsbekräftelse: Vi har tagit emot din bokning";
             this.bookingSuccessName = this.bookingForm.value.firstname + " " + this.bookingForm.value.lastname;
             this.bookingSuccessDateTime = this.bookingForm.value.date + " kl:" + this.bookingForm.value.time;
             this.bookingSuccessGuests = this.bookingForm.value.guests + "";
           }
+          //Rensar bokningsformuläret
           this.bookingForm.reset();
           this.errorMessageForm = "";
           this.addUpdatedBooking();
@@ -81,7 +98,8 @@ export class BookingComponent {
         },
         error: (error) => {
           this.errorMessageForm = error;
-          if (error.status == 403) { 
+          this.isLoading = false;
+          if (error.status == 403) {
             localStorage.removeItem("token");
             this.router.navigate(['/login']);
           }
@@ -97,7 +115,7 @@ export class BookingComponent {
     this.bookingSuccessGuests = "";
   }
 
-  //Fylla input med tidigare bokning
+  //Fylla input med tidigare bokning vid uppdatering
   populateBookingFromBooking(booking: Booking): void {
     this.bookingForm.get("firstname")?.setValue(booking.firstname);
     this.bookingForm.get("lastname")?.setValue(booking.lastname);
