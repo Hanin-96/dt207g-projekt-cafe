@@ -59,6 +59,7 @@ nav ul li:hover::after, nav ul li:focus::after {
     display: none;
 }
 
+/*Media queries*/
 
 @media screen and (max-width:850px) {
 

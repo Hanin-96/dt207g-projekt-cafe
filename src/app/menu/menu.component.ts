@@ -22,11 +22,13 @@ export class MenuComponent {
 
   ngOnInit(): void {
     //Loading spinner sätts igång vid hämtning av data ifall det dröjer
-    this.isLoading = true; 
+    this.isLoading = true;
     this.menuService.getMenuData().subscribe(menuData => {
-      this.dishes = menuData;
       //Loading spinner sätts till false om data har hämtats
       this.isLoading = false;
+      
+      this.dishes = menuData;
+
     })
   }
 

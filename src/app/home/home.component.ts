@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { MenuService } from '../services/menu.service';
-import { Menu } from '../models/menu';
 import { CommonModule } from '@angular/common';
 import { PhotoGalleryComponent } from '../photo-gallery/photo-gallery.component';
 import { IntroComponent } from '../intro/intro.component';
@@ -21,12 +19,12 @@ import { FooterComponent } from '../footer/footer.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
     //Pattern
     patternImg: string = "../assets/img/lines-pattern.png";
 
-
-  //Kallar på servicen
-  constructor(private menuService: MenuService) { }
-
+  scrollToNavbar(navbar: HTMLElement) {
+    navbar.scrollIntoView({behavior: "smooth"});
+    }
 
 }

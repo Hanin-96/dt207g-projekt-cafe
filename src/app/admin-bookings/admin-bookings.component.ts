@@ -37,6 +37,9 @@ export class AdminBookingsComponent {
   //Spinner
   isLoading: boolean = false;
 
+    //Ta bort vissa element i footer
+    isFooter: boolean = false;
+
   constructor(private bookingService: BookingService, private router: Router, private loginService: LoginService) { }
 
 

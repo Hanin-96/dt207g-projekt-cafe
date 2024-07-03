@@ -11,3 +11,7 @@ section {
     margin: 0 auto;
     padding: 6rem 2rem;
 }
+
+p {
+    font-weight: 300;
+}

@@ -52,6 +52,7 @@ export class LoginComponent {
         //console.log(response.message);
       },
       error: (error) => {
+        this.isLoading = false;
         this.errorMessage = "Felaktig Användarnamn / Lösenord";
       },
     });

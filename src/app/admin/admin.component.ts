@@ -23,6 +23,9 @@ export class AdminComponent {
   //Ikon
   faArrowRightToBracketIcon = faArrowRightToBracket;
 
+    //Ta bort vissa element i footer
+    isFooter: boolean = false;
+
 
   //Bakgrundsbild
   linesPatternImg: string = "/assets/img/lines-pattern.png";

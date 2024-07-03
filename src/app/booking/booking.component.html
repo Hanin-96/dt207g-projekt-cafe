@@ -21,7 +21,7 @@
             <div class="book-mobile">
                 <label for="mobile">Mobilnummer:</label>
                 <span class="booking-error" *ngIf="bookingForm.controls['phonenumber'].invalid && bookingForm.controls['phonenumber'].touched">Ange Mobilnummer</span>
-                <input type="text" name="mobile" id="mobile" placeholder="Ange din mobilnummer" formControlName="phonenumber">
+                <input type="text" name="mobile" id="mobile" placeholder="Ange din mobilnummer ex 07XXXXXXXX" formControlName="phonenumber">
             </div>
 
             <div class="book-epost">
@@ -80,6 +80,7 @@
 
             <button *ngIf="bookingId==''" class="btn-book-table" type="submit"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Boka bord</button>
 
+            <!--Om bookningId inte är tomt dvs finns i databasen, kan den uppdateras-->
             <ng-container *ngIf="bookingId!=''">
                 <button class="btn-book-table" type="submit">Uppdatera</button>
                 <button class="btn-abort" (click)="abortUpdate()">Avbryt</button>

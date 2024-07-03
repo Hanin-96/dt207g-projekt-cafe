@@ -17,6 +17,7 @@ export class FooterComponent {
   timesStringsComponent: TimeStringsComponent;
 
   constructor() {
-    this.timesStringsComponent = new TimeStringsComponent()
+    this.timesStringsComponent = new TimeStringsComponent();
   }
+
 }

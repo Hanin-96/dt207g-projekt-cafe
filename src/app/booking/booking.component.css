@@ -116,6 +116,9 @@ span.booking-error {
     display: block;
     font-size: 1.6rem;
     font-style: italic;
+    color: red;
+    margin-top: 0.5rem;
+    
 }
 
 .error-form-message {

@@ -1,5 +1,9 @@
-<app-header />
-<app-navbar />
+<app-header (arrowBtnEvent)="scrollToNavbar(navbar)" />
+
+<app-navbar></app-navbar>
+
+<div #navbar></div>
+
 <app-intro />
 <app-photo-gallery />
 
