@@ -88,8 +88,8 @@ button {
 .error-login {
     margin: 2rem 0;
     font-style: oblique;
-    font-weight: 300;
     font-size: 1.6rem;
+    color: red;
 }
 
 .login-form {
