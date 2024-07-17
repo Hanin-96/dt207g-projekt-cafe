@@ -77,7 +77,7 @@
                 </div>
                 <div class="dish-price">
                     <label for="price">Pris:</label>
-                    <span class="menu-error" *ngIf="menuForm.controls['price'].invalid && menuForm.controls['description'].touched">Ange pris för maträtten</span>
+                    <span class="menu-error" *ngIf="menuForm.controls['price'].invalid && menuForm.controls['price'].touched">Ange pris för maträtten</span>
                     <input type="number" name="price" id="price" placeholder="Pris på maträtt" formControlName="price">
                 </div>
 
