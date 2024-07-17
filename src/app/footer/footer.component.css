@@ -11,11 +11,15 @@ footer ul {
 ul li {
     font-size: 1.6rem;
     font-weight: 300;
+    margin-bottom: 0.5rem;
 }
 
 a {
     color: white;
 }
+
+a:hover {
+border-bottom: 1.5px solid white;}
 
 .info-list-wrap {
     display: flex;
