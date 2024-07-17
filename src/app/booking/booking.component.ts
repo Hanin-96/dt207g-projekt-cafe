@@ -34,8 +34,8 @@ export class BookingComponent {
   bookingSuccessDateTime: string = "";
   bookingSuccessGuests: string = "";
 
-  //Input variabler
-  @Input() bookingId: string = "";
+  //BokningsId
+  bookingId: string = "";
 
   //Input för backgrund
   @Input() useBackground: boolean = true;
@@ -125,6 +125,7 @@ export class BookingComponent {
     this.bookingForm.get("date")?.setValue(booking.date);
     this.bookingForm.get("time")?.setValue(booking.time);
     this.bookingForm.get("bookingMessage")?.setValue(booking.bookingMessage);
+    this.bookingId = booking._id;
   }
 
   //Ångra ändringar

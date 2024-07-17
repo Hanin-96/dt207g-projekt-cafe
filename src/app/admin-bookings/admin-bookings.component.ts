@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Booking } from '../models/booking';
 import { BookingService } from '../services/booking.service';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
@@ -26,9 +26,6 @@ export class AdminBookingsComponent {
 
   getBookings: Booking[] = [];
 
-  //Bokning som ska uppdateras
-  bookingIdToUpdate: string = "";
-
   //Ikon
   faCircleCheckIcon = faCircleCheck;
   faTrashIcon = faTrash;
@@ -37,8 +34,12 @@ export class AdminBookingsComponent {
   //Spinner
   isLoading: boolean = false;
 
-    //Ta bort vissa element i footer
-    isFooter: boolean = false;
+  //Ta bort vissa element i footer
+  isFooter: boolean = false;
+
+  // View child för att komma åt bokningskomponent
+  @ViewChild('bookingComponent')
+  bookingComponent: BookingComponent | undefined;
 
   constructor(private bookingService: BookingService, private router: Router, private loginService: LoginService) { }
 
@@ -95,11 +96,8 @@ export class AdminBookingsComponent {
   }
 
   //Uppdatera bokning
-  updateBooking(el: HTMLElement, booking: Booking, bookingComponent: BookingComponent): void {
-    //Hämtat bokningsId
-    this.bookingIdToUpdate = booking._id;
-
-    bookingComponent.populateBookingFromBooking(booking);
+  updateBooking(el: HTMLElement, booking: Booking): void {
+    this.bookingComponent?.populateBookingFromBooking(booking);
     el.scrollIntoView({ behavior: "smooth" });
 
   }
@@ -107,7 +105,6 @@ export class AdminBookingsComponent {
   //Vid lyckad uppdatering av bokning, ska bookningsid reset, kalla på ngOnInit som hämtar aktuella bokningar
   updatedBookingForm(el: HTMLElement) {
     this.ngOnInit();
-    this.bookingIdToUpdate = "";
 
     //Scrolla till bokningar
     el.scrollIntoView({ behavior: "smooth" });

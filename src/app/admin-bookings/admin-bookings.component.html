@@ -5,7 +5,7 @@
     <div class="bookings-admin-table-wrap">
 
         <div #bookingWrapForm>
-            <app-booking #bookingComponent [bookingId]="bookingIdToUpdate" [useBackground]="false" [displaySuccessMessage]="false" (updateEvent)="updatedBookingForm(bookingTable)" />
+            <app-booking #bookingComponent [useBackground]="false" [displaySuccessMessage]="false" (updateEvent)="updatedBookingForm(bookingTable)" />
         </div>
         <div class="booking-table-container">
             <h2 #bookingTable>Bordsbokningar</h2>
@@ -32,7 +32,7 @@
 
                         <td class="table-btn" colspan="6">
                             <div class="btn-bookings-admin">
-                                <button (click)="updateBooking(bookingWrapForm, bookingData, bookingComponent)"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
+                                <button (click)="updateBooking(bookingWrapForm, bookingData)"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
                                 <button (click)="deleteBooking(bookingData._id)"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
                             </div>
                         </td>
