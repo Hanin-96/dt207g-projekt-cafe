@@ -131,12 +131,14 @@ span.menu-error {
     display: block;
     font-size: 1.6rem;
     font-style: italic;
+    color: red;
 }
 
 .error-form-message {
     display: block;
     font-size: 1.8rem;
     font-style: italic;
+    color: red;
 }
 
 /*Tabell med maträtter*/
