@@ -15,9 +15,6 @@ Alla anrop med GET, POST, PUT och DELETE görs med http Client
 ### Komponenter
 Innehållet på sidorna har skapats i komponenter.
 
-### Bindings
-Datan som skrivs ut på sidorna använder olika typer av bindings, Text interpolation, event binding och two way binding.
-
 ### Services
 Inloggning och hämtning av meny data och bordsbokningar görs i services.
 
