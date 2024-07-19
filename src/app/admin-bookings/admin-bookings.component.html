@@ -1,50 +1,52 @@
 <app-admin-header />
 <app-admin-navbar />
 
-<div class="bookings-wrap" [ngStyle]="{'background-image': 'url(' + patternImg  + ')'}">
-    <div class="bookings-admin-table-wrap">
+<main>
+    <div class="bookings-wrap" [ngStyle]="{'background-image': 'url(' + patternImg  + ')'}">
+        <div class="bookings-admin-table-wrap">
 
-        <div #bookingWrapForm>
-            <app-booking #bookingComponent [useBackground]="false" [displaySuccessMessage]="false" (updateEvent)="updatedBookingForm(bookingTable)" />
-        </div>
-        <div class="booking-table-container">
-            <h2 #bookingTable>Bordsbokningar</h2>
-            <div *ngIf="!isLoading">
-                <table>
-                    <tr>
-                        <th>Namn:</th>
-                        <th>Telefon:</th>
-                        <th>Email</th>
-                        <th>Antal gäster</th>
-                        <th>Datum</th>
-                        <th>Tid</th>
-                        <th>Meddelande:</th>
-                        <th></th>
-                    </tr>
-                    <tr *ngFor="let bookingData of getBookings" class="admin-bookings">
-                        <td data-label="Namn: ">{{ bookingData.firstname}} {{ bookingData.lastname}}</td>
-                        <td data-label="Mobilnummer: ">{{ bookingData.phonenumber}}</td>
-                        <td data-label="Epost: ">{{ bookingData.email}}</td>
-                        <td data-label="Antal gäster: ">{{ bookingData.guests}}</td>
-                        <td data-label="Datum: ">{{ bookingData.date}}</td>
-                        <td data-label="Tid: ">kl:{{ bookingData.time}}</td>
-                        <td data-label="Meddelande: ">{{ bookingData.bookingMessage}}</td>
-
-                        <td class="table-btn" colspan="6">
-                            <div class="btn-bookings-admin">
-                                <button (click)="updateBooking(bookingWrapForm, bookingData)"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
-                                <button (click)="deleteBooking(bookingData._id)"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+            <div #bookingWrapForm>
+                <app-booking #bookingComponent [useBackground]="false" [displaySuccessMessage]="false" (updateEvent)="updatedBookingForm(bookingTable)" />
             </div>
-            <!--Ifall det tar tid för anrop, ska en loading spinner dyka upp-->
-            <app-loading-spinner [isLoadingSpinner]="isLoading"></app-loading-spinner>
+            <div class="booking-table-container">
+                <h2 #bookingTable>Bordsbokningar</h2>
+                <div *ngIf="!isLoading">
+                    <table>
+                        <tr>
+                            <th>Namn:</th>
+                            <th>Telefon:</th>
+                            <th>Email</th>
+                            <th>Antal gäster</th>
+                            <th>Datum</th>
+                            <th>Tid</th>
+                            <th>Meddelande:</th>
+                            <th></th>
+                        </tr>
+                        <tr *ngFor="let bookingData of getBookings" class="admin-bookings">
+                            <td data-label="Namn: ">{{ bookingData.firstname}} {{ bookingData.lastname}}</td>
+                            <td data-label="Mobilnummer: ">{{ bookingData.phonenumber}}</td>
+                            <td data-label="Epost: ">{{ bookingData.email}}</td>
+                            <td data-label="Antal gäster: ">{{ bookingData.guests}}</td>
+                            <td data-label="Datum: ">{{ bookingData.date}}</td>
+                            <td data-label="Tid: ">kl:{{ bookingData.time}}</td>
+                            <td data-label="Meddelande: ">{{ bookingData.bookingMessage}}</td>
+
+                            <td class="table-btn" colspan="6">
+                                <div class="btn-bookings-admin">
+                                    <button (click)="updateBooking(bookingWrapForm, bookingData)"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
+                                    <button (click)="deleteBooking(bookingData._id)"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--Ifall det tar tid för anrop, ska en loading spinner dyka upp-->
+                <app-loading-spinner [isLoadingSpinner]="isLoading"></app-loading-spinner>
+            </div>
+
         </div>
 
     </div>
-
-</div>
+</main>
 
 <app-footer [isFooterVisible]="isFooter" />

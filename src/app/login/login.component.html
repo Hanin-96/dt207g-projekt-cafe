@@ -1,21 +1,23 @@
-<div class="login-form-wrap" [ngStyle]="{'background-image': 'url(' + patternImg  + ')' }">
+<main>
+    <div class="login-form-wrap" [ngStyle]="{'background-image': 'url(' + patternImg  + ')' }">
 
-    <form class="login-form">
-        <img [src]="cafeLogo" alt="cafeLogo" class="logo-login">
-        <h1>Admin Inloggning</h1>
-        <label for="username">Användarnamn:</label>
-        <input type="text" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
-        <label for="password">Lösenord:</label>
-        <input type="password" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+        <form class="login-form">
+            <img [src]="cafeLogo" alt="cafeLogo" class="logo-login">
+            <h1>Admin Inloggning</h1>
+            <label for="username">Användarnamn:</label>
+            <input type="text" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
+            <label for="password">Lösenord:</label>
+            <input type="password" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
 
-        <div>
-            <p class="error-login">{{errorMessage}}</p>
-        </div>
+            <div>
+                <p class="error-login">{{errorMessage}}</p>
+            </div>
 
-        <button id="btn-login" (click)="login()"><fa-icon [icon]="faUserIcon" class="user-mini-icon"></fa-icon>Logga in</button>
-        <button id="btn-backToStart" (click)="backToStartBtn()"><fa-icon [icon]="faChevronIcon" class="left-arrow"></fa-icon>Tillbaka till Startsida</button>
-        <app-loading-spinner [isLoadingSpinner]="isLoading"></app-loading-spinner>
-    </form>
+            <button id="btn-login" (click)="login()"><fa-icon [icon]="faUserIcon" class="user-mini-icon"></fa-icon>Logga in</button>
+            <button id="btn-backToStart" (click)="backToStartBtn()"><fa-icon [icon]="faChevronIcon" class="left-arrow"></fa-icon>Tillbaka till Startsida</button>
+            <app-loading-spinner [isLoadingSpinner]="isLoading"></app-loading-spinner>
+        </form>
 
-    
-</div>
+
+    </div>
+</main>

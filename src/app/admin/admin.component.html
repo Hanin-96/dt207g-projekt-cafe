@@ -1,8 +1,10 @@
 <app-admin-header />
 <app-admin-navbar />
-<div class="admin-main" [ngStyle]="{'background-image': 'url(' + linesPatternImg  + ')'}">
+<main>
+    <div class="admin-main" [ngStyle]="{'background-image': 'url(' + linesPatternImg  + ')'}">
 
-    <app-menu />
+        <app-menu />
 
-</div>
+    </div>
+</main>
 <app-footer [isFooterVisible]="isFooter" />

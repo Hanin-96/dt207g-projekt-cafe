@@ -1,23 +1,25 @@
 <app-header (arrowBtnEvent)="scrollToNavbar(navbar)" />
 
 <app-navbar></app-navbar>
+<main>
 
-<div #navbar></div>
+    <div #navbar></div>
 
-<app-intro />
-<app-photo-gallery />
+    <app-intro />
+    <app-photo-gallery />
 
-<div class="home-menu-wrap" [ngStyle]="{'background-image': 'url(' + patternImg  + ')'}">
-    <app-menu />
-</div>
+    <div class="home-menu-wrap" [ngStyle]="{'background-image': 'url(' + patternImg  + ')'}">
+        <app-menu />
+    </div>
 
 
 
-<app-about />
+    <app-about />
 
-<app-location />
+    <app-location />
 
-<app-contact />
+    <app-contact />
 
-<app-booking />
+    <app-booking />
+</main>
 <app-footer />

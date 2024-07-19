@@ -2,100 +2,103 @@
     <app-admin-header />
     <app-admin-navbar />
 
-    <section id="menu-add-dish">
+    <main>
+
+        <section id="menu-add-dish">
 
 
-        <div class="add-dish-menu-table">
-            <h2>Maträtter</h2>
-            <div *ngIf="!isLoading">
-            <table>
-                <tr>
-                    <th>Titel</th>
-                    <th>Beskrivning</th>
-                    <th>Kategori</th>
-                    <th>Allergifri</th>
-                    <th>Pris</th>
-                    <th></th>
-                </tr>
-                    <tr *ngFor="let menuData of dishes">
-                        <td data-label="Titel: ">{{ menuData.title}}</td>
-                        <td data-label="Beskrivning: ">{{ menuData.description}}</td>
-                        <td data-label="Kategori: ">{{ menuData.category}}</td>
-                        <td data-label="Allergifri: ">{{ menuData.allergy}}</td>
-                        <td data-label="Pris: ">{{ menuData.price}}kr</td>
+            <div class="add-dish-menu-table">
+                <h2>Maträtter</h2>
+                <div *ngIf="!isLoading">
+                    <table>
+                        <tr>
+                            <th>Titel</th>
+                            <th>Beskrivning</th>
+                            <th>Kategori</th>
+                            <th>Allergifri</th>
+                            <th>Pris</th>
+                            <th></th>
+                        </tr>
+                        <tr *ngFor="let menuData of dishes">
+                            <td data-label="Titel: ">{{ menuData.title}}</td>
+                            <td data-label="Beskrivning: ">{{ menuData.description}}</td>
+                            <td data-label="Kategori: ">{{ menuData.category}}</td>
+                            <td data-label="Allergifri: ">{{ menuData.allergy}}</td>
+                            <td data-label="Pris: ">{{ menuData.price}}kr</td>
 
-                        <td class="table-btn" colspan="6">
-                            <div class="btn-dish">
-                                <button class="btn-delete" (click)="deleteDishFromMenu(menuData._id)"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
-                                <button class="btn-edit" (click)="updateDishFromMenu(updateMenuForm, menuData)"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
-                            </div>
-                        </td>
-                    </tr>
-               
-            </table>
-        </div>
-            <!--Ifall det tar tid för anrop, ska en loading spinner dyka upp-->
-            <app-loading-spinner [isLoadingSpinner]="isLoading"></app-loading-spinner>
-        </div>
+                            <td class="table-btn" colspan="6">
+                                <div class="btn-dish">
+                                    <button class="btn-delete" (click)="deleteDishFromMenu(menuData._id)"><fa-icon [icon]="faTrashIcon" class="trash-icon"></fa-icon>Ta bort</button>
+                                    <button class="btn-edit" (click)="updateDishFromMenu(updateMenuForm, menuData)"><fa-icon [icon]="faPenIcon" class="pencil-icon"></fa-icon>Redigera</button>
+                                </div>
+                            </td>
+                        </tr>
 
-
-
-        <div class="menu-form-wrap" #updateMenuForm>
-            <h2 *ngIf="dishIdToUpdate==''">Lägg till maträtt</h2>
-            <h2 *ngIf="dishIdToUpdate!=''">Redigera maträtt</h2>
-
-
-            <form [formGroup]="menuForm" class="add-dish-form" (ngSubmit)="addOrUpdateMenu()">
-
-                <div class="dish-title">
-                    <label for="title">Titel:</label>
-                    <span class="menu-error" *ngIf="menuForm.controls['title'].invalid && menuForm.controls['title'].touched">Titeln måste vara minst 3 bokstäver</span>
-                    <input type="text" name="title" id="title" placeholder="Ange titel på maträtt" formControlName="title">
+                    </table>
                 </div>
-
-                <div class="dish-category">
-                    <label for="category">Kategori:</label>
-                    <span class="menu-error" *ngIf="menuForm.controls['category'].invalid && menuForm.controls['category'].touched">Välj alternativ</span>
-                    <select name="category" id="category" formControlName="category">
-                        <option value="Brunch">Brunch</option>
-                        <option value="Mackor">Mackor</option>
-                        <option value="Sallader">Sallader</option>
-                        <option value="Bowls">Bowls</option>
-                        <option value="Soppor">Soppor</option>
-                    </select>
-                </div>
-
-                <div class="dish-description">
-                    <label for="description">Beskrivning:</label>
-                    <span class="menu-error" *ngIf="menuForm.controls['description'].invalid && menuForm.controls['description'].touched">Maträtten måste ha en beskrivning</span>
-                    <textarea type="text" name="description" id="description" placeholder="Ange beskrivning av maträtt" formControlName="description"></textarea>
-                </div>
-
-                <div class="dish-allergy">
-                    <label for="allergy">Allergifri:</label>
-                    <input type="text" name="allergy" id="allergy" placeholder="Exempelvis Laktosfri, Glutenfri, fri från nötter osv" formControlName="allergy">
-                </div>
-                <div class="dish-price">
-                    <label for="price">Pris:</label>
-                    <span class="menu-error" *ngIf="menuForm.controls['price'].invalid && menuForm.controls['price'].touched">Ange pris för maträtten</span>
-                    <input type="number" name="price" id="price" placeholder="Pris på maträtt" formControlName="price">
-                </div>
+                <!--Ifall det tar tid för anrop, ska en loading spinner dyka upp-->
+                <app-loading-spinner [isLoadingSpinner]="isLoading"></app-loading-spinner>
+            </div>
 
 
-                @if(errorMessageMenuForm != "") {
-                <p class="error-form-message">{{errorMessageMenuForm}}</p>
-                }
 
-                <button *ngIf="dishIdToUpdate==''" class="btn-add-dish" type="submit"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Lägg till</button>
+            <div class="menu-form-wrap" #updateMenuForm>
+                <h2 *ngIf="dishIdToUpdate==''">Lägg till maträtt</h2>
+                <h2 *ngIf="dishIdToUpdate!=''">Redigera maträtt</h2>
 
-                <ng-container *ngIf="dishIdToUpdate!=''">
-                    <button class="btn-add-dish" type="submit">Uppdatera</button>
-                    <button class="btn-abort" (click)="abortUpdate()">Avbryt</button>
-                </ng-container>
-            </form>
-        </div>
 
-    </section>
+                <form [formGroup]="menuForm" class="add-dish-form" (ngSubmit)="addOrUpdateMenu()">
+
+                    <div class="dish-title">
+                        <label for="title">Titel:</label>
+                        <span class="menu-error" *ngIf="menuForm.controls['title'].invalid && menuForm.controls['title'].touched">Titeln måste vara minst 3 bokstäver</span>
+                        <input type="text" name="title" id="title" placeholder="Ange titel på maträtt" formControlName="title">
+                    </div>
+
+                    <div class="dish-category">
+                        <label for="category">Kategori:</label>
+                        <span class="menu-error" *ngIf="menuForm.controls['category'].invalid && menuForm.controls['category'].touched">Välj alternativ</span>
+                        <select name="category" id="category" formControlName="category">
+                            <option value="Brunch">Brunch</option>
+                            <option value="Mackor">Mackor</option>
+                            <option value="Sallader">Sallader</option>
+                            <option value="Bowls">Bowls</option>
+                            <option value="Soppor">Soppor</option>
+                        </select>
+                    </div>
+
+                    <div class="dish-description">
+                        <label for="description">Beskrivning:</label>
+                        <span class="menu-error" *ngIf="menuForm.controls['description'].invalid && menuForm.controls['description'].touched">Maträtten måste ha en beskrivning</span>
+                        <textarea type="text" name="description" id="description" placeholder="Ange beskrivning av maträtt" formControlName="description"></textarea>
+                    </div>
+
+                    <div class="dish-allergy">
+                        <label for="allergy">Allergifri:</label>
+                        <input type="text" name="allergy" id="allergy" placeholder="Exempelvis Laktosfri, Glutenfri, fri från nötter osv" formControlName="allergy">
+                    </div>
+                    <div class="dish-price">
+                        <label for="price">Pris:</label>
+                        <span class="menu-error" *ngIf="menuForm.controls['price'].invalid && menuForm.controls['price'].touched">Ange pris för maträtten</span>
+                        <input type="number" name="price" id="price" placeholder="Pris på maträtt" formControlName="price">
+                    </div>
+
+
+                    @if(errorMessageMenuForm != "") {
+                    <p class="error-form-message">{{errorMessageMenuForm}}</p>
+                    }
+
+                    <button *ngIf="dishIdToUpdate==''" class="btn-add-dish" type="submit"><fa-icon [icon]="faCircleCheckIcon" id="check-icon"></fa-icon>Lägg till</button>
+
+                    <ng-container *ngIf="dishIdToUpdate!=''">
+                        <button class="btn-add-dish" type="submit">Uppdatera</button>
+                        <button class="btn-abort" (click)="abortUpdate()">Avbryt</button>
+                    </ng-container>
+                </form>
+            </div>
+
+        </section>
+    </main>
 
 </div>
 
