@@ -19,7 +19,6 @@
 
 button {
     color: #1e1e1e !important;
-    text-decoration: none;
 }
 
 #btn-scrollTop:hover {
@@ -48,6 +47,5 @@ fa-icon {
 
     button {
         color: #1e1e1e !important;
-        text-decoration: none;
     }
 }
