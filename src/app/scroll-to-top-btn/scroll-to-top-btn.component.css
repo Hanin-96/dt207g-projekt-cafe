@@ -17,10 +17,6 @@
     transition: border-radius 0.1s ease-in-out;
 }
 
-button {
-    color: #1e1e1e !important;
-}
-
 #btn-scrollTop:hover {
     border-radius: 2rem;
 }
@@ -28,6 +24,12 @@ button {
 button {
     border: none;
     background-color: #F6A566;
+    color: #1e1e1e !important;
+}
+
+button:focus,
+button:active {
+    color: #1e1e1e !important; 
 }
 
 fa-icon {
