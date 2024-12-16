@@ -17,7 +17,7 @@
     transition: border-radius 0.1s ease-in-out;
 }
 
-a {
+button {
     color: #1e1e1e !important;
     text-decoration: none;
 }
@@ -46,7 +46,7 @@ fa-icon {
         border-radius: 0;
     }
 
-    a {
+    button {
         color: #1e1e1e !important;
         text-decoration: none;
     }
