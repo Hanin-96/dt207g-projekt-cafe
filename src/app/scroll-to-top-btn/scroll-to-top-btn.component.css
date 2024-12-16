@@ -18,7 +18,7 @@
 }
 
 a {
-    color: #1e1e1e;
+    color: #1e1e1e !important;
     text-decoration: none;
 }
 
@@ -44,5 +44,10 @@ fa-icon {
         opacity: 1;
         box-shadow: 2px 0 4px 2px rgb(30, 30, 30, 0.2);
         border-radius: 0;
+    }
+
+    a {
+        color: #1e1e1e !important;
+        text-decoration: none;
     }
 }
