@@ -17,6 +17,11 @@
     transition: border-radius 0.1s ease-in-out;
 }
 
+a {
+    color: #1e1e1e;
+    text-decoration: none;
+}
+
 #btn-scrollTop:hover {
     border-radius: 2rem;
 }
