@@ -130,6 +130,7 @@ fa-icon {
 .hero-img {
     animation: none;
     filter: none;
+    background-attachment: scroll;
 }
 
 }
