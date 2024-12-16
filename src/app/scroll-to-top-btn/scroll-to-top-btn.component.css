@@ -27,11 +27,6 @@ button {
     color: #1e1e1e !important;
 }
 
-button:focus,
-button:active {
-    color: #1e1e1e !important; 
-}
-
 fa-icon {
     font-size: 2rem;
 }
