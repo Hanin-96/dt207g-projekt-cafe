@@ -13,6 +13,8 @@ h2 {
     width: 100%;
     margin: 0 auto;
     padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px #1e1e1e33;
 }
 
 label {
